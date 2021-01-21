@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="V6CKqObmSv0eDBDtDtLoXSjBelYIc1PycwbHwCKW">
+
+    <title>Plaiaundi</title>
+
+    <!-- Scripts -->
+    <script src="http://localhost/18Trabajo/public/js/app.js" defer></script>
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="http://localhost/18Trabajo/public/css/app.css" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="http://localhost/18Trabajo/public">
+                    <img src="images/plaiaundi.png" alt="logo" height="49px" width="200px" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav mr-auto">
+                        
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Authentication Links -->
+                                                                                    <li class="nav-item">
+                                    <a class="nav-link" href="http://localhost/18Trabajo/public/login">Iniciar Sesión</a>
+                                </li>
+                                                        
+                                                            <li class="nav-item">
+                                    <a class="nav-link" href="http://localhost/18Trabajo/public/register">Registrarse</a>
+                                </li>
+                                                                        </ul>
+                </div>
+            </div>
+        </nav>
+
+        <main class="py-4">
+            <link href="css/estiloLR.css" rel="stylesheet">
+
+<div class="container">
+    <div class="row text-center">
+        <div class="col-md-12 login-form">
+            <form method="POST" action="http://localhost/18Trabajo/public/login">
+                <input type="hidden" name="_token" value="V6CKqObmSv0eDBDtDtLoXSjBelYIc1PycwbHwCKW">
+                <div class="row">
+                    <div class="col-md-12 login-form-imagen">
+                        <img src="images/usuario.png" id="imgUsuario"/>
+                    </div>
+                </div>			
+                <div class="row">
+                    <div class="col-md-12 login-form-header">
+                        <p class="login-form-font-header">Iniciar<span>Sesión</span><p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 login-form-row text-center">
+                        <a href="#" class="btn btn-danger">
+                            <img src="images/gmail.png"/> Sign in with <b>Google</b>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 login-form-row">
+                        <div class="or-seperator"><i>or</i></div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="ml-5 mr-5 col-md-11 login-from-row">
+                        <input id="email" name="email" type="email" class="form-control " placeholder="Correo electronico" value="" required autocomplete="email" autofocus>
+                                            </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="ml-5 mr-5 col-md-11 login-from-row">
+                        <input id="password" name="password" type="password" class="form-control " placeholder="Contraseña" required autocomplete="current-password">
+                                            </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-9">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="remember" id="remember" >
+                            <label class="form-check-label" for="remember"> Recordarme </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row mb-0">
+                    <div class="col-md-12 login-from-boton">
+                        <button type="submit" id="btnIniciar" class="btn btn-success pull-right"> Iniciar Sesión </button>
+                                                    <a class="btn btn-link" href="http://localhost/18Trabajo/public/password/reset"> Has olvidado la contraseña? </a>
+                                            </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+        </main>
+    </div>
+</body>
+</html>
