@@ -13,8 +13,8 @@
 
         <style>
             #map { 
-                width: 95%;
-                height: 450px;
+                width: 100%;
+                height: 600px;
                 box-shadow: 5px 5px 5px #888;
             }
         </style>
@@ -38,13 +38,15 @@
             //Ubicacion de las balizas
             //---------- G U I P U Z K O A----------
             //Arrasate
-            L.marker([43.0715, -2.49308], {draggable: false}).addTo(map);
+            var Arrasate = L.marker([43.0715, -2.49308], {draggable: false}).addTo(map);
+            Arrasate.bindPopup("<b>Arrasate</b>").openPopup();
             //Berastegi
-            L.marker([43.1248, -1.98168], {draggable: false}).addTo(map);
+            var Berastegi = L.marker([43.1248, -1.98168], {draggable: false}).addTo(map);
+            Berastegi.bindPopup("<b>Berastegi</b>").openPopup();
             //Bidania
-            L.marker([43.146, -2.15502], {draggable: false}).addTo(map);
+            var Bidania = L.marker([43.146, -2.15502], {draggable: false}).addTo(map);
             //Higer
-            L.marker([43.3933, -1.79615], {draggable: false}).addTo(map);
+            var Higer = L.marker([43.3933, -1.79615], {draggable: false}).addTo(map);
             //Jaizkibel
             L.marker([43.3446, -1.85972], {draggable: false}).addTo(map);
             //Miramon
