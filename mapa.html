@@ -13,7 +13,7 @@
 
         <style>
             #map { 
-                width: 100%;
+                width: 95%;
                 height: 450px;
                 box-shadow: 5px 5px 5px #888;
             }
@@ -30,13 +30,136 @@
              
             L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
-                maxZoom: 0,
-                minZoom: 0,
+                maxZoom: 9
             }).addTo(map);
             
             L.control.scale().addTo(map);
-            L.marker([43.3933, -1.79615], {draggable: true}).addTo(map);
+
+            //Ubicacion de las balizas
+            //---------- G U I P U Z K O A----------
+            //Arrasate
+            L.marker([43.0715, -2.49308], {draggable: false}).addTo(map);
+            //Berastegi
+            L.marker([43.1248, -1.98168], {draggable: false}).addTo(map);
+            //Bidania
+            L.marker([43.146, -2.15502], {draggable: false}).addTo(map);
+            //Higer
+            L.marker([43.3933, -1.79615], {draggable: false}).addTo(map);
+            //Jaizkibel
+            L.marker([43.3446, -1.85972], {draggable: false}).addTo(map);
+            //Miramon
+            L.marker([43.2888, -1.97121], {draggable: false}).addTo(map);
+            //Ordizia
+            L.marker([43.0484, -2.17755], {draggable: false}).addTo(map);
+            //Santa Clara
+            L.marker([43.3238, -1.99834], {draggable: false}).addTo(map);
+            //Zarautz
+            L.marker([43.293, -2.14542], {draggable: false}).addTo(map);
+            //Zegama
+            L.marker([42.9588, -2.29852], {draggable: false}).addTo(map);
+            //Zizurkil
+            L.marker([43.1901, -2.06181], {draggable: false}).addTo(map);
             
+
+
+            //---------- V I T O R I A ----------
+            //Altube
+            L.marker([42.9661, -2.86795], {draggable: false}).addTo(map);
+            //Arkaute I
+            L.marker([42.8538, -2.62701], {draggable: false}).addTo(map);
+            //Arkauti
+            L.marker([42.854275, -2.621833], {draggable: false}).addTo(map);
+            //Beluntza
+            L.marker([42.9635, -2.89361], {draggable: false}).addTo(map);
+            //Espejo
+            L.marker([42.8078, -3.04103], {draggable: false}).addTo(map);
+            //Gasteiz
+            L.marker([42.8604, -2.68899], {draggable: false}).addTo(map);
+            //Gorbea
+            L.marker([42.9995, -2.73515], {draggable: false}).addTo(map);
+            //Herrera
+            L.marker([42.5978, -2.67616], {draggable: false}).addTo(map);
+            //Ilarduia
+            L.marker([42.87395, -2.28623], {draggable: false}).addTo(map);
+            //Iturrieta
+            L.marker([42.7955, -2.34575], {draggable: false}).addTo(map);
+            //Kanpezu
+            L.marker([42.6754, -2.34148], {draggable: false}).addTo(map);
+            //Kapildui
+            L.marker([42.768, -2.53785], {draggable: false}).addTo(map);
+            //Moreda
+            L.marker([42.5303, -2.41023], {draggable: false}).addTo(map);
+            //Navarrete
+            L.marker([42.638, -2.52321], {draggable: false}).addTo(map);
+            //Orduña
+            L.marker([42.9837, -3.03726], {draggable: false}).addTo(map);
+            //Páganos
+            L.marker([42.5605, -2.60055], {draggable: false}).addTo(map);
+            //Roitegi
+            L.marker([42.7837, -2.371], {draggable: false}).addTo(map);
+            //Salvatierra
+            L.marker([42.8582, -2.39538], {draggable: false}).addTo(map);
+            //Subijana
+            L.marker([42.8196, -2.89328], {draggable: false}).addTo(map);
+            //Trebiño
+            L.marker([42.7199, -2.70141], {draggable: false}).addTo(map);
+            //Zaldiaran
+            L.marker([42.7966, -2.73642], {draggable: false}).addTo(map);
+            //Zambrana
+            L.marker([42.6751, -2.8869], {draggable: false}).addTo(map);
+            
+
+
+            //---------- B I Z K A I A ----------
+            //Almike (Bermeo)
+            L.marker([43.4137, -2.73229], {draggable: false}).addTo(map);
+            //Arboleda
+            L.marker([43.2967, -3.06747], {draggable: false}).addTo(map);
+            //Arteaga
+            L.marker([43.349, -2.65714], {draggable: false}).addTo(map);
+            //Barazar
+            L.marker([43.0703, -2.71048], {draggable: false}).addTo(map);
+            //Berna
+            L.marker([43.1871, -2.67238], {draggable: false}).addTo(map);
+            //Cerroja
+            L.marker([43.2112, -3.40713], {draggable: false}).addTo(map);
+            //Derio
+            L.marker([43.2931, -2.87342], {draggable: false}).addTo(map);
+            //Deusto
+            L.marker([43.2834, -2.96791], {draggable: false}).addTo(map);
+            //Eitzaga
+            L.marker([43.1761, -2.50096], {draggable: false}).addTo(map);
+            //Galindo
+            L.marker([43.3062, -2.99878], {draggable: false}).addTo(map);
+            //Igorre
+            L.marker([43.1686, -2.7842], {draggable: false}).addTo(map);
+            //Iurreta
+            L.marker([43.1769, -2.622], {draggable: false}).addTo(map);
+            //La Garbea
+            L.marker([43.217, -3.19368], {draggable: false}).addTo(map);
+            //Llodio
+            L.marker([43.1423, -2.95079], {draggable: false}).addTo(map);
+            //Mallabia
+            L.marker([43.1926263, -2.5295246], {draggable: false}).addTo(map);
+            //Matxitxako
+            L.marker([43.4395, -2.7636], {draggable: false}).addTo(map);
+            //Oiz
+            L.marker([43.2304, -2.5954], {draggable: false}).addTo(map);
+            //Punta Galea
+            L.marker([43.3752, -3.03608], {draggable: false}).addTo(map);
+            //Untzueta
+            L.marker([43.1392, -2.9071], {draggable: false}).addTo(map);
+            //Urkiola
+            L.marker([43.102, -2.64658], {draggable: false}).addTo(map);
+            //Venta Alta
+            L.marker([43.2165, -2.89976], {draggable: false}).addTo(map);
+
+
+            
+            //BURGOS
+            //Ordunte
+            L.marker([43.1623, -3.28404], {draggable: false}).addTo(map);
+
         </script>
 	</body>
 </html>
