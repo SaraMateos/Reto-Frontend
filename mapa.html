@@ -9,7 +9,10 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+        <link rel="stylesheet" href="node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css" />
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+        <script type="text/javascript" src="node_modules/leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
+
 
         <style>
             #map { 
@@ -21,146 +24,262 @@
     </head>
 
     <body>
-		<div id = 'map'>
+		<div id='map'>
         </div>
         
         <script>
  
-            var map = L.map('map').setView([43.00, -2.51], 14);
+            var map = L.map('map').setView([43.00, -2.51], 9);
+            //npm install --save leaflet.markercluster
+            var markerCluster = L.markerClusterGroup();
              
             L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
-                maxZoom: 9
+                minZoom: 5,
+                maxZoom: 16
             }).addTo(map);
             
             L.control.scale().addTo(map);
+            map.addLayer(markerCluster);
+
+            //https://www.unigis.es/agrupacion-de-marcadores-clustering-leaflet/
+            //Ejemplos del markerCluster
 
             //Ubicacion de las balizas
             //---------- G U I P U Z K O A----------
             //Arrasate
             var Arrasate = L.marker([43.0715, -2.49308], {draggable: false}).addTo(map);
-            Arrasate.bindPopup("<b>Arrasate</b>").openPopup();
+            Arrasate.bindPopup("<b>Arrasate</b>");
+            markerCluster.addLayer(Arrasate);
             //Berastegi
             var Berastegi = L.marker([43.1248, -1.98168], {draggable: false}).addTo(map);
-            Berastegi.bindPopup("<b>Berastegi</b>").openPopup();
+            Berastegi.bindPopup("<b>Berastegi</b>");
+            markerCluster.addLayer(Berastegi);
             //Bidania
             var Bidania = L.marker([43.146, -2.15502], {draggable: false}).addTo(map);
+            Bidania.bindPopup("<b>Bidania</b>");
+            markerCluster.addLayer(Bidania);
             //Higer
             var Higer = L.marker([43.3933, -1.79615], {draggable: false}).addTo(map);
+            Higer.bindPopup("<b>Higer</b>");
+            markerCluster.addLayer(Higer);
             //Jaizkibel
-            L.marker([43.3446, -1.85972], {draggable: false}).addTo(map);
+            var Jaizkibel = L.marker([43.3446, -1.85972], {draggable: false}).addTo(map);
+            Jaizkibel.bindPopup("<b>Jaizkibel</b>");
+            markerCluster.addLayer(Jaizkibel);
             //Miramon
-            L.marker([43.2888, -1.97121], {draggable: false}).addTo(map);
+            var Miramon = L.marker([43.2888, -1.97121], {draggable: false}).addTo(map);
+            Miramon.bindPopup("<b>Miramon</b>");
+            markerCluster.addLayer(Miramon);
             //Ordizia
-            L.marker([43.0484, -2.17755], {draggable: false}).addTo(map);
+            var Ordizia = L.marker([43.0484, -2.17755], {draggable: false}).addTo(map);
+            Ordizia.bindPopup("<b>Ordizia</b>");
+            markerCluster.addLayer(Ordizia);
             //Santa Clara
-            L.marker([43.3238, -1.99834], {draggable: false}).addTo(map);
+            var SantaClara = L.marker([43.3238, -1.99834], {draggable: false}).addTo(map);
+            SantaClara.bindPopup("<b>Santa Clara</b>");
+            markerCluster.addLayer(SantaClara);
             //Zarautz
-            L.marker([43.293, -2.14542], {draggable: false}).addTo(map);
+            var Zarautz = L.marker([43.293, -2.14542], {draggable: false}).addTo(map);
+            Zarautz.bindPopup("<b>Zarautz</b>");
+            markerCluster.addLayer(Zarautz);
             //Zegama
-            L.marker([42.9588, -2.29852], {draggable: false}).addTo(map);
+            var Zegama = L.marker([42.9588, -2.29852], {draggable: false}).addTo(map);
+            Zegama.bindPopup("<b>Zegama</b>");
+            markerCluster.addLayer(Zegama);
             //Zizurkil
-            L.marker([43.1901, -2.06181], {draggable: false}).addTo(map);
+            var Zizurkil = L.marker([43.1901, -2.06181], {draggable: false}).addTo(map);
+            Zizurkil.bindPopup("<b>Zizurkil</b>");
+            markerCluster.addLayer(Zizurkil);
             
 
 
             //---------- V I T O R I A ----------
             //Altube
-            L.marker([42.9661, -2.86795], {draggable: false}).addTo(map);
+            var Altube = L.marker([42.9661, -2.86795], {draggable: false}).addTo(map);
+            Altube.bindPopup("<b>Altube</b>");
+            markerCluster.addLayer(Altube);
             //Arkaute I
-            L.marker([42.8538, -2.62701], {draggable: false}).addTo(map);
+            var ArkauteI = L.marker([42.8538, -2.62701], {draggable: false}).addTo(map);
+            ArkauteI.bindPopup("<b>Arkaute I</b>");
+            markerCluster.addLayer(ArkauteI);
             //Arkauti
-            L.marker([42.854275, -2.621833], {draggable: false}).addTo(map);
+            var Arkauti = L.marker([42.854275, -2.621833], {draggable: false}).addTo(map);
+            Arkauti.bindPopup("<b>Arkauti</b>");
+            markerCluster.addLayer(Arkauti);
             //Beluntza
-            L.marker([42.9635, -2.89361], {draggable: false}).addTo(map);
+            var Beluntza = L.marker([42.9635, -2.89361], {draggable: false}).addTo(map);
+            Beluntza.bindPopup("<b>Beluntza</b>");
+            markerCluster.addLayer(Beluntza);
             //Espejo
-            L.marker([42.8078, -3.04103], {draggable: false}).addTo(map);
+            var Espejo = L.marker([42.8078, -3.04103], {draggable: false}).addTo(map);
+            Espejo.bindPopup("<b>Espejo</b>");
+            markerCluster.addLayer(Espejo);
             //Gasteiz
-            L.marker([42.8604, -2.68899], {draggable: false}).addTo(map);
+            var Gasteiz = L.marker([42.8604, -2.68899], {draggable: false}).addTo(map);
+            Gasteiz.bindPopup("<b>Gasteiz</b>");
+            markerCluster.addLayer(Gasteiz);
             //Gorbea
-            L.marker([42.9995, -2.73515], {draggable: false}).addTo(map);
+            var Gorbea = L.marker([42.9995, -2.73515], {draggable: false}).addTo(map);
+            Gorbea.bindPopup("<b>Gorbea</b>");
+            markerCluster.addLayer(Gorbea);
             //Herrera
-            L.marker([42.5978, -2.67616], {draggable: false}).addTo(map);
+            var Herrera = L.marker([42.5978, -2.67616], {draggable: false}).addTo(map);
+            Herrera.bindPopup("<b>Herrera</b>");
+            markerCluster.addLayer(Herrera);
             //Ilarduia
-            L.marker([42.87395, -2.28623], {draggable: false}).addTo(map);
+            var Ilarduia = L.marker([42.87395, -2.28623], {draggable: false}).addTo(map);
+            Ilarduia.bindPopup("<b>Ilarduia</b>");
+            markerCluster.addLayer(Ilarduia);
             //Iturrieta
-            L.marker([42.7955, -2.34575], {draggable: false}).addTo(map);
+            var Iturrieta = L.marker([42.7955, -2.34575], {draggable: false}).addTo(map);
+            Iturrieta.bindPopup("<b>Iturrieta</b>");
+            markerCluster.addLayer(Iturrieta);
             //Kanpezu
-            L.marker([42.6754, -2.34148], {draggable: false}).addTo(map);
+            var Kanpezu = L.marker([42.6754, -2.34148], {draggable: false}).addTo(map);
+            Kanpezu.bindPopup("<b>Kanpezu</b>");
+            markerCluster.addLayer(Kanpezu);
             //Kapildui
-            L.marker([42.768, -2.53785], {draggable: false}).addTo(map);
+            var Kapildui = L.marker([42.768, -2.53785], {draggable: false}).addTo(map);
+            Kapildui.bindPopup("<b>Kapildui</b>");
+            markerCluster.addLayer(Kapildui);
             //Moreda
-            L.marker([42.5303, -2.41023], {draggable: false}).addTo(map);
+            var Moreda = L.marker([42.5303, -2.41023], {draggable: false}).addTo(map);
+            Moreda.bindPopup("<b>Moreda</b>");
+            markerCluster.addLayer(Moreda);
             //Navarrete
-            L.marker([42.638, -2.52321], {draggable: false}).addTo(map);
+            var Navarrete = L.marker([42.638, -2.52321], {draggable: false}).addTo(map);
+            Navarrete.bindPopup("<b>Navarrete</b>");
+            markerCluster.addLayer(Navarrete);
             //Orduña
-            L.marker([42.9837, -3.03726], {draggable: false}).addTo(map);
+            var Orduña = L.marker([42.9837, -3.03726], {draggable: false}).addTo(map);
+            Orduña.bindPopup("<b>Orduña</b>");
+            markerCluster.addLayer(Orduña);
             //Páganos
-            L.marker([42.5605, -2.60055], {draggable: false}).addTo(map);
+            var Paganos = L.marker([42.5605, -2.60055], {draggable: false}).addTo(map);
+            Paganos.bindPopup("<b>Páganos</b>");
+            markerCluster.addLayer(Paganos);
             //Roitegi
-            L.marker([42.7837, -2.371], {draggable: false}).addTo(map);
+            var Roitegi = L.marker([42.7837, -2.371], {draggable: false}).addTo(map);
+            Roitegi.bindPopup("<b>Roitegi</b>");
+            markerCluster.addLayer(Roitegi);
             //Salvatierra
-            L.marker([42.8582, -2.39538], {draggable: false}).addTo(map);
+            var Salvatierra = L.marker([42.8582, -2.39538], {draggable: false}).addTo(map);
+            Salvatierra.bindPopup("<b>Salvatierra</b>");
+            markerCluster.addLayer(Salvatierra);
             //Subijana
-            L.marker([42.8196, -2.89328], {draggable: false}).addTo(map);
+            var Subijana = L.marker([42.8196, -2.89328], {draggable: false}).addTo(map);
+            Subijana.bindPopup("<b>Subijana</b>");
+            markerCluster.addLayer(Subijana);
             //Trebiño
-            L.marker([42.7199, -2.70141], {draggable: false}).addTo(map);
+            var Trebino = L.marker([42.7199, -2.70141], {draggable: false}).addTo(map);
+            Trebino.bindPopup("<b>Trebiño</b>");
+            markerCluster.addLayer(Trebino);
             //Zaldiaran
-            L.marker([42.7966, -2.73642], {draggable: false}).addTo(map);
+            var Zaldiaran = L.marker([42.7966, -2.73642], {draggable: false}).addTo(map);
+            Zaldiaran.bindPopup("<b>Zaldiaran</b>");
+            markerCluster.addLayer(Zaldiaran);
             //Zambrana
-            L.marker([42.6751, -2.8869], {draggable: false}).addTo(map);
+            var Zambrana = L.marker([42.6751, -2.8869], {draggable: false}).addTo(map);
+            Zambrana.bindPopup("<b>Zambrana</b>");
+            markerCluster.addLayer(Zambrana);
             
 
 
             //---------- B I Z K A I A ----------
             //Almike (Bermeo)
-            L.marker([43.4137, -2.73229], {draggable: false}).addTo(map);
+            var Almike = L.marker([43.4137, -2.73229], {draggable: false}).addTo(map);
+            Almike.bindPopup("<b>Almike</b>");
+            markerCluster.addLayer(Almike);
             //Arboleda
-            L.marker([43.2967, -3.06747], {draggable: false}).addTo(map);
+            var Arboleda = L.marker([43.2967, -3.06747], {draggable: false}).addTo(map);
+            Arboleda.bindPopup("<b>Arboleda</b>");
+            markerCluster.addLayer(Arboleda);
             //Arteaga
-            L.marker([43.349, -2.65714], {draggable: false}).addTo(map);
+            var Arteaga = L.marker([43.349, -2.65714], {draggable: false}).addTo(map);
+            Arteaga.bindPopup("<b>Arteaga</b>");
+            markerCluster.addLayer(Arteaga);
             //Barazar
-            L.marker([43.0703, -2.71048], {draggable: false}).addTo(map);
+            var Barazar = L.marker([43.0703, -2.71048], {draggable: false}).addTo(map);
+            Barazar.bindPopup("<b>Barazar</b>");
+            markerCluster.addLayer(Barazar);
             //Berna
-            L.marker([43.1871, -2.67238], {draggable: false}).addTo(map);
+            var Berna = L.marker([43.1871, -2.67238], {draggable: false}).addTo(map);
+            Berna.bindPopup("<b>Berna</b>");
+            markerCluster.addLayer(Berna);
             //Cerroja
-            L.marker([43.2112, -3.40713], {draggable: false}).addTo(map);
+            var Cerroja = L.marker([43.2112, -3.40713], {draggable: false}).addTo(map);
+            Cerroja.bindPopup("<b>Cerroja</b>");
+            markerCluster.addLayer(Cerroja);
             //Derio
-            L.marker([43.2931, -2.87342], {draggable: false}).addTo(map);
+            var Derio = L.marker([43.2931, -2.87342], {draggable: false}).addTo(map);
+            Derio.bindPopup("<b>Derio</b>");
+            markerCluster.addLayer(Derio);
             //Deusto
-            L.marker([43.2834, -2.96791], {draggable: false}).addTo(map);
+            var Deusto = L.marker([43.2834, -2.96791], {draggable: false}).addTo(map);
+            Deusto.bindPopup("<b>Deusto</b>");
+            markerCluster.addLayer(Deusto);
             //Eitzaga
-            L.marker([43.1761, -2.50096], {draggable: false}).addTo(map);
+            var Eitzaga = L.marker([43.1761, -2.50096], {draggable: false}).addTo(map);
+            Eitzaga.bindPopup("<b>Eitzaga</b>");
+            markerCluster.addLayer(Eitzaga);
             //Galindo
-            L.marker([43.3062, -2.99878], {draggable: false}).addTo(map);
+            var Galindo = L.marker([43.3062, -2.99878], {draggable: false}).addTo(map);
+            Galindo.bindPopup("<b>Galindo</b>");
+            markerCluster.addLayer(Galindo);
             //Igorre
-            L.marker([43.1686, -2.7842], {draggable: false}).addTo(map);
+            var Igorre = L.marker([43.1686, -2.7842], {draggable: false}).addTo(map);
+            Igorre.bindPopup("<b>Igorre</b>");
+            markerCluster.addLayer(Igorre);
             //Iurreta
-            L.marker([43.1769, -2.622], {draggable: false}).addTo(map);
+            var Iurreta = L.marker([43.1769, -2.622], {draggable: false}).addTo(map);
+            Iurreta.bindPopup("<b>Iurreta</b>");
+            markerCluster.addLayer(Iurreta);
             //La Garbea
-            L.marker([43.217, -3.19368], {draggable: false}).addTo(map);
+            var LaGarbea = L.marker([43.217, -3.19368], {draggable: false}).addTo(map);
+            LaGarbea.bindPopup("<b>La Garbea</b>");
+            markerCluster.addLayer(LaGarbea);
             //Llodio
-            L.marker([43.1423, -2.95079], {draggable: false}).addTo(map);
+            var Llodio = L.marker([43.1423, -2.95079], {draggable: false}).addTo(map);
+            Llodio.bindPopup("<b>Llodio</b>");
+            markerCluster.addLayer(Llodio);
             //Mallabia
-            L.marker([43.1926263, -2.5295246], {draggable: false}).addTo(map);
+            var Mallabia = L.marker([43.1926263, -2.5295246], {draggable: false}).addTo(map);
+            Mallabia.bindPopup("<b>Mallabia</b>");
+            markerCluster.addLayer(Mallabia);
             //Matxitxako
-            L.marker([43.4395, -2.7636], {draggable: false}).addTo(map);
+            var Matxitxako = L.marker([43.4395, -2.7636], {draggable: false}).addTo(map);
+            Matxitxako.bindPopup("<b>Matxitxako</b>");
+            markerCluster.addLayer(Matxitxako);
             //Oiz
-            L.marker([43.2304, -2.5954], {draggable: false}).addTo(map);
+            var Oiz = L.marker([43.2304, -2.5954], {draggable: false}).addTo(map);
+            Oiz.bindPopup("<b>Oiz</b>");
+            markerCluster.addLayer(Oiz);
             //Punta Galea
-            L.marker([43.3752, -3.03608], {draggable: false}).addTo(map);
+            var PuntaGalea = L.marker([43.3752, -3.03608], {draggable: false}).addTo(map);
+            PuntaGalea.bindPopup("<b>Punta Galea</b>");
+            markerCluster.addLayer(PuntaGalea);
             //Untzueta
-            L.marker([43.1392, -2.9071], {draggable: false}).addTo(map);
+            var Untzueta = L.marker([43.1392, -2.9071], {draggable: false}).addTo(map);
+            Untzueta.bindPopup("<b>Untzueta</b>");
+            markerCluster.addLayer(Untzueta);
             //Urkiola
-            L.marker([43.102, -2.64658], {draggable: false}).addTo(map);
+            var Urkiola = L.marker([43.102, -2.64658], {draggable: false}).addTo(map);
+            Urkiola.bindPopup("<b>Urkiola</b>");
+            markerCluster.addLayer(Urkiola);
             //Venta Alta
-            L.marker([43.2165, -2.89976], {draggable: false}).addTo(map);
+            var VentaAlta = L.marker([43.2165, -2.89976], {draggable: false}).addTo(map);
+            VentaAlta.bindPopup("<b>Venta Alta</b>");
+            markerCluster.addLayer(VentaAlta);
 
 
-            
             //BURGOS
             //Ordunte
-            L.marker([43.1623, -3.28404], {draggable: false}).addTo(map);
+            var Ordunte = L.marker([43.1623, -3.28404], {draggable: false}).addTo(map);
+            Ordunte.bindPopup("<b>Ordunte</b>");
+            markerCluster.addLayer(Ordunte);
+
+            map.addLayer(markerCluster);
 
         </script>
 	</body>
