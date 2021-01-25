@@ -53,14 +53,27 @@
             //Cambiar color al clickar
             function markerOnClick() {
                 this.setIcon(icono);
+
             }
+
+            
 
             //Ubicacion de las balizas
             //---------- G U I P U Z K O A----------
             //Arrasate
             var Arrasate = L.marker([43.0715, -2.49308], {draggable: false}).on('click', markerOnClick).addTo(map);
-            Arrasate.bindPopup("<b>Arrasate</b>");
-            markerCluster.addLayer(Arrasate);
+            Arrasate.bindPopup("<b id='nomBaliza'>Arrasate</b> <br><button id='btnMostrar'>Ver datos</button");
+            //markerCluster.addLayer(Arrasate);
+
+            $(document).ready(function() {
+                $('#nomBaliza').click(function(){
+                    alert("Clickado");
+                });
+                
+            });
+
+
+
             //Berastegi
             var Berastegi = L.marker([43.1248, -1.98168], {draggable: false}).on('click', markerOnClick).addTo(map);
             Berastegi.bindPopup("<b>Berastegi</b>");
