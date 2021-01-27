@@ -25,11 +25,6 @@
         <script>
  
             var map = L.map('map').setView([43.00, -2.51], 9);
-            
-            var markerCluster = new L.markerClusterGroup({
-                maxClusterRadius: 80,
-                animateAddingMarkers: true,
-            });
              
             L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: 'Map data &copy',
