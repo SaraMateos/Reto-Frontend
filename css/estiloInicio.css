@@ -1,0 +1,45 @@
+body {
+    font-size:16px;
+    letter-spacing: 2px;
+    color: #000000;
+    font-weight: 400;
+    font-style: normal;
+    font-variant: small-caps;
+    text-transform: none;
+
+    background-image: url(http://www.hdfondos.eu/pictures/2013/1129/1/orig_57066.jpg);
+    background-position: center center;
+    background-attachment: fixed;
+    background-attachment: cover;
+    background-color: #ffffff;
+}
+
+a:link {
+    text-decoration: none !important;
+}
+
+.login {
+    color: #3e5f8a;
+}
+
+.login:hover {
+    color: #0000ff;
+}
+
+.registro {
+    color: #3e5f8a;
+}
+
+.registro:hover {
+    /* Azul electrico */
+    color: #0000ff;
+}
+
+.home {
+    color: #3e5f8a;
+}
+
+.home:hover {
+    /* Azul electrico */
+    color: #0000ff;
+}
