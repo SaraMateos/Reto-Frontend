@@ -4,17 +4,48 @@
         <meta charset="utf-8">
         <title>Mapa y datos</title>
 
-        <link href="css/estiloIframes.css" rel="stylesheet">
-        <link href="css/app.css" rel="stylesheet">
+         <!-- Scripts -->
+         <script src="js/app.js" defer></script>
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+         <!-- Styles -->
+         <link href="css/app.css" rel="stylesheet">
+         <link href="css/estiloIframes.css" rel="stylesheet">
+
     </head>
 
     <body>
+        <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="register.html">
+                    <img src="images/meteorologia.png" alt="logo" height="60px" width="60px" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Lado izquierdo del menu -->
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="tiempoIFRAMES.html">Inicio</a>
+                        </li>
+                    </ul>
+                    
+                    <!-- Lado derecho del menu -->
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">Cerrar Sesión</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
         <p>&nbsp;</p>
         <div id="contenedor">
+            <h3 class="text-center">PANEL METEOROLOGICO</h3>
             <div class="divs" id="izq"><iframe src="mapa.html" width="95%"></iframe></div>
             <div class="divs" id="der"><iframe src="datos.html" width="95%"></iframe></div>
         </div>

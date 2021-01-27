@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <link href="css/estiloDatos.css" rel="stylesheet">
+    <!-- Scripts -->
+    <script src="js/app.js" defer></script>
     <script src="js/balizas.js" rel="stylesheet"></script>
+
+    <!-- Styles -->
+    <link href="css/app.css" rel="stylesheet">
+    <link href="css/estiloDatos.css" rel="stylesheet">
 
     <title>Datos de las balizas</title>
   </head>
@@ -16,10 +19,7 @@
   <body>
     <div class="container">
       <div class="row">
-        <h3 class="text-center">PANEL METEOROLOGICO</h3>
-      </div>
-      <div class="row">
-        <p>Elige las balizas que quieras ver.</p>
+        <p class="txtInfo">Elige las balizas y los datos que quieras ver.</p>
       </div>
 
       <!-- DATOS DE LAS BALIZAS -->
@@ -27,42 +27,49 @@
 
       <div class="row">
 
-        <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class="elegirDatos">
+          <ul>
+            <li>Temperatura</li>
+            <li>Precipitaciones</li>
+            <li>Humedad (%)</li>
+            <li>Vel. Viento</li>
+          </ul>
+        </div>
 
-          <div class="col-sm-3 mb-5">
-            <div class="datos">
-                <p>Higer</p>
-                <p>Humedad: 60%</p>
-            </div>
+        <div class="col-sm-3 mb-5">
+          <div class="datos">
+            <p>Higer</p>
+            <p>Humedad: 60%</p>
           </div>
+        </div>
 
-          <div class="col-sm-3 mb-5">
-            <div class="datos">
-                <p>Higer</p>
-                <p>Humedad: 60%</p>
-            </div>
+        <div class="col-sm-3 mb-5">
+          <div class="datos">
+            <p>Higer</p>
+            <p>Humedad: 60%</p>
           </div>
+        </div>
 
-          <div class="col-sm-3 mb-5">
-            <div class="datos">
-                <p>Higer</p>
-                <p>Humedad: 60%</p>
-            </div>
+        <div class="col-sm-3 mb-5">
+          <div class="datos">
+            <p>Higer</p>
+            <p>Humedad: 60%</p>
           </div>
+        </div>
 
-          <div class="col-sm-3 mb-5">
-            <div class="datos">
-                <p>Higer</p>
-                <p>Humedad: 60%</p>
-            </div>
+        <div class="col-sm-3 mb-5">
+          <div class="datos">
+            <p>Higer</p>
+            <p>Humedad: 60%</p>
           </div>
+        </div>
 
-          <div class="col-sm-3 mb-5">
-            <div class="datos">
-                <p>Higer</p>
-                <p>Humedad: 60%</p>
-            </div>
+        <div class="col-sm-3 mb-5">
+          <div class="datos">
+            <p>Higer</p>
+            <p>Humedad: 60%</p>
           </div>
+        </div>
 
       </div>
 
