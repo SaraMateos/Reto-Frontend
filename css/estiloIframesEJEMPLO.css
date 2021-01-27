@@ -36,9 +36,7 @@
 
 li.boton {
     border:1px solid black;
-    border-bottom:4px black solid;
-    border-right:4px black solid;
-    background:#eeeeee;
+    list-style-type: none;
 }
 
 li.boton:hover {
