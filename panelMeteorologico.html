@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,34 +9,33 @@
         <script src="js/app.js" defer></script>
         <script src="js/balizas.js" rel="stylesheet"></script>
         <script src="js/dragDrop.js" rel="stylesheet"></script>
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
 
         <!-- Styles -->
         <link href="css/app.css" rel="stylesheet">
         <link href="css/estiloIframesEJEMPLO.css" rel="stylesheet">
 
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
-        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
-        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+        
         <script>
             function allowDrop(ev) {
-              ev.preventDefault();
+                ev.preventDefault();
             }
-            
+
             function drag(ev) {
-              ev.dataTransfer.setData("text", ev.target.id);
+                ev.dataTransfer.setData("text", ev.target.id);
             }
-            
+
             function drop(ev) {
-              ev.preventDefault();
-              var data = ev.dataTransfer.getData("text");
-              ev.target.appendChild(document.getElementById(data));
+                ev.preventDefault();
+                var data = ev.dataTransfer.getData("text");
+                ev.target.appendChild(document.getElementById(data));
             }
         </script>
 
-        <title>Mapa y Datos</title>
+        <title>Panel Meteorologico</title>
     </head>
 
     <body>
@@ -44,9 +44,8 @@
                 <a class="navbar-brand" href="register.html">
                     <img src="images/meteorologia.png" alt="logo" height="60px" width="60px" />
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -57,7 +56,7 @@
                             <a class="nav-link" href="tiempoIFRAMES.html">Inicio</a>
                         </li>
                     </ul>
-                    
+
                     <!-- Lado derecho del menu -->
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
@@ -69,28 +68,28 @@
         </nav>
 
         <main class="py-5">
-            <div class="container">
+            <div class="container-fluid">
 
                 <!-- LADO IZQUIERDO -->
-                <div class="estilo">
-                    
+                <div class="estilo col-md-6 clearfix float-left">
+
                     <div class="m-5">
 
                         <div id='map'>
                         </div>
-                        
+
                         <script>
-                
+
                             var map = L.map('map').setView([43.00, -2.51], 9);
-                             
+
                             L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                                 attribution: 'Map data &copy',
                                 minZoom: 5,
                                 maxZoom: 16
                             }).addTo(map);
-                            
+
                             L.control.scale().addTo(map);
-                
+
                             //Marcador al clickar
                             var icono = new L.Icon({
                                 iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
@@ -100,26 +99,26 @@
                                 popupAnchor: [1, -34],
                                 shadowSize: [41, 41]
                             });
-                
+
                             //Cambiar color al clickar
                             function markerOnClick() {
                                 this.setIcon(icono);
                             }
-                            
+
                             //Ubicacion de las balizas
                             for (var i = 0; i < balizas.length; i++) {
                                 marker = new L.marker([balizas[i][1], balizas[i][2]]).on('click', markerOnClick).addTo(map);
-                                marker.bindPopup("<h4 id='bal" + balizas[i][0] + "'><b>" + balizas[i][0] + "</b></h4> <ul id='listaLaLon'><li>Latitud: "+ balizas[i][1] +"</li> <li>Longitud: "+ balizas[i][2] +"</li> </ul>")
+                                marker.bindPopup("<h4 id='bal" + balizas[i][0] + "'><b>" + balizas[i][0] + "</b></h4> <ul id='listaLaLon'><li>Latitud: " + balizas[i][1] + "</li> <li>Longitud: " + balizas[i][2] + "</li> </ul>")
                             };
-                
+
                         </script>
 
                     </div>
 
                 </div>
-    
+
                 <!-- LADO DERECHO -->
-                <div class="estilo">
+                <div class="estilo col-md-6 clearfix float-left">
 
                     <div class="m-5">
 
@@ -164,4 +163,5 @@
         </main>
 
     </body>
+
 </html>
