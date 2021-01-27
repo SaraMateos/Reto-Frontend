@@ -40,7 +40,6 @@
             }).addTo(map);
             
             L.control.scale().addTo(map);
-            map.addLayer(markerCluster);
 
             //Marcador al clickar
             var icono = new L.Icon({
@@ -60,15 +59,8 @@
             //Ubicacion de las balizas
             for (var i = 0; i < balizas.length; i++) {
                 marker = new L.marker([balizas[i][1], balizas[i][2]]).on('click', markerOnClick).addTo(map);
-                marker.bindPopup("<h4 id='bal" + balizas[i][0] + "'><b>" + balizas[i][0] + "</b></h4> <ul id='listaLaLon'><li>Latitud: "+ balizas[i][1] +"</li> <li>Longitud: "+ balizas[i][2] +"</li> </ul>").on("popupopen", () => {
-                    $("#bal"+balizas[i][0]+"").on("click", e => {
-                        e.preventDefault();
-                        alert("Has clicado en la baliza.");
-                    });
-                });
-            }
-            markerCluster.addLayer(marker);
-            map.addLayer(markerCluster);
+                marker.bindPopup("<h4 id='bal" + balizas[i][0] + "'><b>" + balizas[i][0] + "</b></h4> <ul id='listaLaLon'><li>Latitud: "+ balizas[i][1] +"</li> <li>Longitud: "+ balizas[i][2] +"</li> </ul>")
+            };
 
         </script>
 
