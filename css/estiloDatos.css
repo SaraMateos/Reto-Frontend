@@ -1,7 +1,3 @@
-.datos {
-    border: 2px solid #FF0DF4;
-}
-
 p {
     margin: 10px;
 }
@@ -22,4 +18,8 @@ p {
     list-style-type: none;
     text-align: left;
     border: 2px solid springgreen;
+}
+
+.datos {
+    border: 2px solid #FF0DF4;
 }
