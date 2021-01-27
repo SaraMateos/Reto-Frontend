@@ -1,2 +1,5 @@
 Colores marcadores:
 https://github.com/pointhi/leaflet-color-markers
+
+Drag and Drop:
+https://www.digitalocean.com/community/tutorials/js-drag-and-drop-vanilla-js-es

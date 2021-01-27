@@ -9,7 +9,6 @@
     background: #ffffff;
     border-radius: 25px;
 
-    width: 70%;
     min-height: 700px;
 }
 
@@ -33,4 +32,15 @@
 
 .datos {
     border: 2px solid #FF0DF4;
+}
+
+li.boton {
+    border:1px solid black;
+    border-bottom:4px black solid;
+    border-right:4px black solid;
+    background:#eeeeee;
+}
+
+li.boton:hover {
+    background: #4AAE9B;
 }

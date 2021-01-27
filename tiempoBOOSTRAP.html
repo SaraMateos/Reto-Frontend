@@ -7,6 +7,7 @@
         <!-- Scripts -->
         <script src="js/app.js" defer></script>
         <script src="js/balizas.js" rel="stylesheet"></script>
+        <script src="js/dragDrop.js" rel="stylesheet"></script>
 
         <!-- Styles -->
         <link href="css/app.css" rel="stylesheet">
@@ -17,6 +18,22 @@
 
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
+        <script>
+            function allowDrop(ev) {
+              ev.preventDefault();
+            }
+            
+            function drag(ev) {
+              ev.dataTransfer.setData("text", ev.target.id);
+            }
+            
+            function drop(ev) {
+              ev.preventDefault();
+              var data = ev.dataTransfer.getData("text");
+              ev.target.appendChild(document.getElementById(data));
+            }
+        </script>
 
         <title>Mapa y Datos</title>
     </head>
@@ -52,10 +69,10 @@
         </nav>
 
         <main class="py-5">
-            <div class="container-fluid">
+            <div class="container">
 
                 <!-- LADO IZQUIERDO -->
-                <div class="col-sm-5 col-md-5 float-left ml-5 estilo">
+                <div class="estilo">
                     
                     <div class="m-5">
 
@@ -99,11 +116,10 @@
 
                     </div>
 
-                    
                 </div>
     
                 <!-- LADO DERECHO -->
-                <div class="col-sm-5 col-md-5 float-right mr-5 estilo">
+                <div class="estilo">
 
                     <div class="m-5">
 
@@ -114,25 +130,26 @@
                           <!-- DATOS -->                
                           <div class="row">
                     
-                            <div class="elegirDatos">
+                            <div class="elegirDatos" ondragover="allowDrop(event);" ondrop="drop(event);">
                               <ul>
-                                <li class="m-3">Vel. Viento</li>
-                                <li class="m-3">Dir. Viento</li>
-                                <li class="m-3">Temperatura</li>
-                                <li class="m-3">Humedad (%)</li>
-                                <li class="m-3">Precipitaciones</li>
+                                <li id="drag-1" class="m-3 boton" draggable="true" ondragstart="drag(event)">Vel. Viento</li>
+                                <li id="drag-2" class="m-3 boton" draggable="true" ondragstart="drag(event)">Dir. Viento</li>
+                                <li id="drag-3" class="m-3 boton" draggable="true" ondragstart="drag(event)">Temperatura</li>
+                                <li id="drag-4" class="m-3 boton" draggable="true" ondragstart="drag(event)">Humedad (%)</li>
+                                <li id="drag-5" class="m-3 boton" draggable="true" ondragstart="drag(event)">Precipitaciones</li>
                               </ul>
                             </div>
                     
-                            <div class="col-xs-2 col-sm-3 mb-5">
-                              <div class="datos">
+                            <div class="col-sm-3 mb-3 ">
+                              <div class="datos" ondrop="drop(event)" ondragover="allowDrop(event)">
                                 <p>Higer</p>
+                                <p>Temperatura: 13 ºC</p>
                                 <p>Humedad: 60%</p>
                               </div>
                             </div>
                     
-                            <div class="col-xs-2 col-sm-3 mb-5">
-                              <div class="datos">
+                            <div class="col-sm-3 mb-3">
+                              <div class="datos" ondragover="allowDrop(event);" ondrop="drop(event);">
                                 <p>Higer</p>
                                 <p>Humedad: 60%</p>
                               </div>
