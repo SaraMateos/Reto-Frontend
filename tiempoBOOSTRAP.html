@@ -3,87 +3,148 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+        <!-- Scripts -->
+        <script src="js/app.js" defer></script>
+        <script src="js/balizas.js" rel="stylesheet"></script>
+
+        <!-- Styles -->
+        <link href="css/app.css" rel="stylesheet">
+        <link href="css/estiloIframesEJEMPLO.css" rel="stylesheet">
 
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
-        <link rel="stylesheet" href="node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css" />
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-        <script type="text/javascript" src="node_modules/leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
 
-        <link href="css/estiloDatos.css" rel="stylesheet">
-        <script src="js/balizas.js" rel="stylesheet"></script>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
 
         <title>Mapa y Datos</title>
     </head>
 
     <body>
+        <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="register.html">
+                    <img src="images/meteorologia.png" alt="logo" height="60px" width="60px" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-        <div class="container">
-            <div class="row">
-                
-                    <div id='map'></div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Lado izquierdo del menu -->
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="tiempoIFRAMES.html">Inicio</a>
+                        </li>
+                    </ul>
                     
-                    <script type="text/javascript">
- 
-                        var map = L.map('map').setView([43.00, -2.51], 9);
-                        //npm install --save leaflet.markercluster
-                        var markerCluster = new L.markerClusterGroup({
-                            maxClusterRadius: 80,
-                            animateAddingMarkers: true,
-                        });
-                         
-                        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
-                            minZoom: 5,
-                            maxZoom: 16
-                        }).addTo(map);
-                        
-                        L.control.scale().addTo(map);
-                        map.addLayer(markerCluster);
-            
-                        //Marcador al clickar
-                        var icono = new L.Icon({
-                            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
-                            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-                            iconSize: [25, 41],
-                            iconAnchor: [12, 41],
-                            popupAnchor: [1, -34],
-                            shadowSize: [41, 41]
-                        });
-            
-                        //Cambiar color al clickar
-                        function markerOnClick() {
-                            this.setIcon(icono);
-                        }
-                        
-                        //Ubicacion de las balizas
-                        for (var i = 0; i < balizas.length; i++) {
-                            marker = new L.marker([balizas[i][1], balizas[i][2]]).on('click', markerOnClick).addTo(map);
-                            marker.bindPopup("<h4 id='bal" + balizas[i][0] + "'><b>" + balizas[i][0] + "</b></h4> <ul id='listaLaLon'><li>Latitud: "+ balizas[i][1] +"</li> <li>Longitud: "+ balizas[i][2] +"</li> </ul>").on("popupopen", () => {
-                                $("#bal"+balizas[i][0]+"").on("click", e => {
-                                    e.preventDefault();
-                                    alert("Has clicado en la baliza.");
-                                });
-                            });
-                        }
-                        markerCluster.addLayer(marker);
-                        map.addLayer(markerCluster);
-            
-                    </script>
-                                      
-               
-
-                
-
-                <div class="col-md-5">
-                    asdgf
+                    <!-- Lado derecho del menu -->
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">Cerrar Sesión</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </div>
+        </nav>
 
-        
+        <main class="py-5">
+            <div class="container-fluid">
+
+                <!-- LADO IZQUIERDO -->
+                <div class="col-sm-5 col-md-5 float-left ml-5 estilo">
+                    
+                    <div class="m-5">
+
+                        <div id='map'>
+                        </div>
+                        
+                        <script>
+                
+                            var map = L.map('map').setView([43.00, -2.51], 9);
+                             
+                            L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                attribution: 'Map data &copy',
+                                minZoom: 5,
+                                maxZoom: 16
+                            }).addTo(map);
+                            
+                            L.control.scale().addTo(map);
+                
+                            //Marcador al clickar
+                            var icono = new L.Icon({
+                                iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+                                shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41],
+                                popupAnchor: [1, -34],
+                                shadowSize: [41, 41]
+                            });
+                
+                            //Cambiar color al clickar
+                            function markerOnClick() {
+                                this.setIcon(icono);
+                            }
+                            
+                            //Ubicacion de las balizas
+                            for (var i = 0; i < balizas.length; i++) {
+                                marker = new L.marker([balizas[i][1], balizas[i][2]]).on('click', markerOnClick).addTo(map);
+                                marker.bindPopup("<h4 id='bal" + balizas[i][0] + "'><b>" + balizas[i][0] + "</b></h4> <ul id='listaLaLon'><li>Latitud: "+ balizas[i][1] +"</li> <li>Longitud: "+ balizas[i][2] +"</li> </ul>")
+                            };
+                
+                        </script>
+
+                    </div>
+
+                    
+                </div>
+    
+                <!-- LADO DERECHO -->
+                <div class="col-sm-5 col-md-5 float-right mr-5 estilo">
+
+                    <div class="m-5">
+
+                        <div class="row">
+                            <p class="txtInfo">Elige las balizas y los datos que quieras ver.</p>
+                          </div>
+                    
+                          <!-- DATOS -->                
+                          <div class="row">
+                    
+                            <div class="elegirDatos">
+                              <ul>
+                                <li class="m-3">Vel. Viento</li>
+                                <li class="m-3">Dir. Viento</li>
+                                <li class="m-3">Temperatura</li>
+                                <li class="m-3">Humedad (%)</li>
+                                <li class="m-3">Precipitaciones</li>
+                              </ul>
+                            </div>
+                    
+                            <div class="col-xs-2 col-sm-3 mb-5">
+                              <div class="datos">
+                                <p>Higer</p>
+                                <p>Humedad: 60%</p>
+                              </div>
+                            </div>
+                    
+                            <div class="col-xs-2 col-sm-3 mb-5">
+                              <div class="datos">
+                                <p>Higer</p>
+                                <p>Humedad: 60%</p>
+                              </div>
+                            </div>
+                    
+                          </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </main>
 
     </body>
 </html>

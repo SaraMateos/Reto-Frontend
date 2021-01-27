@@ -8,11 +8,10 @@ $.ajax({
     },
     //HTML a donde va a redirigir si va bien
     success: function (respuesta) {
-        window.location = "measurements.html";
+        window.location = "login.html";
     },
     error: function() {
         console.log("No se ha podido obtener la información.");
     },
     dataType: 'json'
 });
-
