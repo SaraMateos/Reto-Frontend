@@ -42,14 +42,15 @@ iframe {
 
 
 /* Responsive */
-@media (max-width: 1200px) {
+@media (max-width: 1300px) {
     
     .divs {
         margin: 5px;
     }
     
     iframe {
-        margin: 15px;
+        margin: 10px;
+        height: 600px;
     }
 }
 
@@ -73,12 +74,18 @@ iframe {
     * {
         background-color: rgb(255, 71, 194);
     }
-
-    .divs {
-        margin: 3px;
-    }
     
     iframe {
         margin: 8px;
+    }
+
+    #izq {
+        float: left;
+        margin-left: 50px;
+    }
+    
+    #der {
+        float:inline-end;
+        margin-right: 50px;
     }
 }
