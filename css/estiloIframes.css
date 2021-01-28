@@ -1,39 +1,44 @@
-.contenedor {
-    text-align: center;
+#map { 
+    width: 100%;
+    height: 600px;
+    box-shadow: 5px 5px 5px #888;
 }
 
-.divs {
-    display: inline-block;
-    margin: 10px;
-    padding: 0px;
+.estilo {
+    border: 5px solid #1790A4;
+    border-radius: 40px;
 
     background: #ffffff;
-    border: 2px solid #59C8E4;
-    border-radius: 25px;
-    
-    width: 45%;
-    min-height: 500px;
+
+    min-height: 700px;
 }
 
-iframe {
-    margin: 25px;
-    width: 95%;
-
-    text-align: center;
-    height: 610px;
-    border: 0px;
-
-    border: 4px solid pink;
-    
+.txtInfo {
+    font-weight: bold;
 }
 
-#izq {
+.elegirDatos {
+    width: 100%;
     float: left;
-    margin-left: 30px;
+    text-align: center;
+}
+  
+.elegirDatos ul li {
+    display: inline-block;
+    list-style-type: none;
+    text-align: left;
+    border: 2px solid springgreen;
 }
 
-#der {
-    float: right;
-    margin-right: 30px;
+.datos {
+    border: 2px solid #FF0DF4;
 }
 
+li.boton {
+    border:1px solid black;
+    list-style-type: none;
+}
+
+li.boton:hover {
+    background: #4AAE9B;
+}

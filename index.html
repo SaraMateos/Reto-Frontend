@@ -6,6 +6,7 @@
         
         <!-- Scripts -->
         <script src="js/app.js" defer></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
         <!-- Styles -->
         <link href="css/app.css" rel="stylesheet">
@@ -29,7 +30,7 @@
 
                         
                         <!--Meter funcion de jquery on click y meter el ajax-->
-                        <a href="register.html" class="ml-4 registro btn btn-outline-light rounded-pill pl-5 pr-5" id="btnRegistro">Register</a> 
+                        <a class="ml-4 registro btn btn-outline-light rounded-pill pl-5 pr-5" id="btnRegistro">Register</a> 
                     </div>
                 </div>
             </div>
@@ -37,37 +38,39 @@
         </div>
 
         <script>
-            $('#btnLogin').on('click', getLogin);
-            $('#btnRegistro').on('click', getRegistro);
-    
-            function getLogin() {
-                $.ajax({
-                    url: 'http://localhost:8000/api/login',
-                    type: 'POST',
-                    success: function(respuesta) {
-                        console.log(respuesta);
-                        //window.location('');
-                    },
-                    error: function() {
-                        console.log("No se ha podido obtener la infomación.");
-                    },
-                    dataType: 'json'
-                });
-            }
+            $(document).ready(function() {
+                $('#btnLogin').on('click', getLogin);
 
-            function getRegistro() {
-                $.ajax({
-                    url: 'http://localhost:8000/api/register',
-                    type: 'POST',
-                    success: function(respuesta) {
-                        console.log(respuesta);
-                    },
-                    error: function() {
-                        console.log("No se ha podido obtener la infomación.");
-                    },
-                    dataType: 'json'
-                });
-            }
+                function getLogin() {
+                    $.ajax({
+                        url: 'http://localhost:8000/api/login',
+                        type: 'GET',
+                        success: function(respuesta) {
+                            console.log(respuesta);
+                        },
+                        error: function() {
+                            console.log("No se ha podido obtener la información.");
+                        },
+                        dataType: 'json'
+                    });
+                }
+
+                $('#btnRegistro').on('click', getRegistro);
+
+                function getRegistro() {
+                    $.ajax({
+                        url: 'http://localhost:8000/api/register',
+                        type: 'POST',
+                        success: function(respuesta) {
+                            console.log(respuesta);
+                        },
+                        error: function() {
+                            console.log("No se ha podido obtener la información.");
+                        },
+                        dataType: 'json'
+                    });
+                }
+            }); 
         </script>
     </body>
 </html>

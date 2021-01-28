@@ -1,84 +1,112 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Scripts -->
-        <script src="js/app.js" defer></script>
-        <script src="js/balizas.js" rel="stylesheet"></script>
-        <script src="js/dragDrop.js" rel="stylesheet"></script>
-        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <!-- Styles -->
+    <link href="css/app.css" rel="stylesheet">
+    <link href="css/estiloIframes.css" rel="stylesheet">
 
-        <!-- Styles -->
-        <link href="css/app.css" rel="stylesheet">
-        <link href="css/estiloIframesEJEMPLO.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
 
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
-        
-        <script>
-            function allowDrop(ev) {
-                ev.preventDefault();
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/balizas.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
+    <script>
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+    </script>
+
+    <!-- <script>
+        function leeBalizas() {
+            var divResultado = document.getElementById('map');
+            var xmlhttp = new XMLHttpRequest();
+
+            xmlhttp.onreadystatechange = function () {
+
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    console.log(xmlhttp.responseText);
+                    var jResp = JSON.parse(xmlhttp.responseText);
+
+                    for (var i = 0; i < jResp.length; i++) {
+                        marker = new L.marker([jResp[i]["Latitud"], jResp[i]["Longitud"]]).on('click', markerOnClick).addTo(map);
+                        marker.bindPopup("<h4 id='bal" + jResp[i]["Nombre"] + "'><b>" + jResp[i]["Nombre"] + "</b></h4> <ul id='listaLaLon'><li>Latitud: " + jResp[i]["Latitud"] + "</li> <li>Longitud: " + jResp[i]["Longitud"] + "</li> </ul>");
+                    }
+                    divResultado.innerHTML = sSalida;
+
+                }
             }
+        }
+        xmlhttp.open("GET", "AccesoDatos.php");
+        xmlhttp.send();
+    </script> -->
 
-            function drag(ev) {
-                ev.dataTransfer.setData("text", ev.target.id);
-            }
 
-            function drop(ev) {
-                ev.preventDefault();
-                var data = ev.dataTransfer.getData("text");
-                ev.target.appendChild(document.getElementById(data));
-            }
-        </script>
+    
 
-        <title>Panel Meteorologico | Meteorologia</title>
-    </head>
 
-    <body>
-        <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="register.html">
-                    <img src="images/clima.png" logo="" height="70px" width="70px" />
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    <title>Panel Meteorologico | Meteorologia</title>
+</head>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Lado izquierdo del menu -->
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="tiempoIFRAMES.html">Inicio</a>
-                        </li>
-                    </ul>
 
-                    <!-- Lado derecho del menu -->
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="login.html">Cerrar Sesión</a>
-                        </li>
-                    </ul>
-                </div>
+<body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="register.html">
+                <img src="images/clima.png" logo="" height="70px" width="70px" />
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Lado izquierdo del menu -->
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="panelMeteorologico.html">Inicio</a>
+                    </li>
+                </ul>
+
+                <!-- Lado derecho del menu -->
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Cerrar Sesión</a>
+                    </li>
+                </ul>
             </div>
-        </nav>
+        </div>
+    </nav>
 
-        <main class="py-5">
-            <div class="container-fluid">
+    <main class="py-5">
+        <div class="container-fluid">
 
-                <!-- LADO IZQUIERDO (MAPA) -->
-                <div class="estilo col-md-6 clearfix float-left">
+            <!-- LADO IZQUIERDO (MAPA) -->
+            <div class="estilo col-md-6 clearfix float-left">
 
-                    <div class="m-5">
+                <div class="m-5">
 
-                        <div id='map'>
-                        </div>
+                    <div id='map'>
+                    </div>
 
-                        <script>
+                    <script>
 
                             var map = L.map('map').setView([43.00, -2.51], 9);
 
@@ -105,63 +133,63 @@
                                 this.setIcon(icono);
                             }
 
-                            //Ubicacion de las balizas
+                            // Ubicacion de las balizas
                             for (var i = 0; i < balizas.length; i++) {
-                                marker = new L.marker([balizas[i][1], balizas[i][2]]).on('click', markerOnClick).addTo(map);
-                                marker.bindPopup("<h4 id='bal" + balizas[i][0] + "'><b>" + balizas[i][0] + "</b></h4> <ul id='listaLaLon'><li>Latitud: " + balizas[i][1] + "</li> <li>Longitud: " + balizas[i][2] + "</li> </ul>")
+                                marker = new L.marker([balizas[i][2], balizas[i][3]]).on('click', markerOnClick).addTo(map);
+                                marker.bindPopup("<h4 id='bal" + balizas[i][0] + "'><b>" + balizas[i][1] + "</b></h4> <ul id='listaLaLon'><li>Latitud: " + balizas[i][2] + "</li> <li>Longitud: " + balizas[i][3] + "</li> <li>Longitud: " + balizas[i][4] + "</li> </ul>");
                             };
 
-                        </script>
-
-                    </div>
+                    </script>
 
                 </div>
 
-                <!-- LADO DERECHO (DATOS) -->
-                <div class="estilo col-md-6 clearfix float-left">
+            </div>
 
-                    <div class="m-5">
+            <!-- LADO DERECHO (DATOS) -->
+            <div class="estilo col-md-6 clearfix float-left">
 
-                        <div class="row">
-                            <p class="txtInfo">Elige las balizas y los datos que quieras ver.</p>
-                          </div>
-                    
-                          <!-- DATOS -->                
-                          <div class="row">
-                    
-                            <div class="elegirDatos" ondragover="allowDrop(event);" ondrop="drop(event);">
-                              <ul>
+                <div class="m-5">
+
+                    <div class="row">
+                        <p class="txtInfo">Elige las balizas y los datos que quieras ver.</p>
+                    </div>
+
+                    <!-- DATOS -->
+                    <div class="row">
+
+                        <div class="elegirDatos" ondragover="allowDrop(event);" ondrop="drop(event);">
+                            <ul>
                                 <li id="drag-1" class="m-3 boton" draggable="true" ondragstart="drag(event)">Vel. Viento</li>
                                 <li id="drag-2" class="m-3 boton" draggable="true" ondragstart="drag(event)">Dir. Viento</li>
                                 <li id="drag-3" class="m-3 boton" draggable="true" ondragstart="drag(event)">Temperatura</li>
                                 <li id="drag-4" class="m-3 boton" draggable="true" ondragstart="drag(event)">Humedad (%)</li>
                                 <li id="drag-5" class="m-3 boton" draggable="true" ondragstart="drag(event)">Precipitaciones</li>
-                              </ul>
-                            </div>
-                    
-                            <div class="col-sm-4 mb-3">
-                              <div class="datos" ondrop="drop(event)" ondragover="allowDrop(event)">
+                            </ul>
+                        </div>
+
+                        <div class="col-sm-4 mb-3">
+                            <div class="datos" ondrop="drop(event)" ondragover="allowDrop(event)">
                                 <p class="m-3">Higer</p>
                                 <p class="m-3">Temperatura: 13 ºC</p>
                                 <p class="m-3">Humedad: 60%</p>
-                              </div>
                             </div>
-                    
-                            <div class="col-sm-4 mb-3">
-                              <div class="datos" ondragover="allowDrop(event);" ondrop="drop(event);">
+                        </div>
+
+                        <div class="col-sm-4 mb-3">
+                            <div class="datos" ondragover="allowDrop(event);" ondrop="drop(event);">
                                 <p class="m-3">Higer</p>
                                 <p class="m-3">Humedad: 60%</p>
-                              </div>
                             </div>
-                    
-                          </div>
+                        </div>
 
                     </div>
+
                 </div>
-
             </div>
-        </main>
 
-    </body>
+        </div>
+    </main>
+
+</body>
 
 </html>
