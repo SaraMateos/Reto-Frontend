@@ -14,6 +14,7 @@
         <title>Inicio | Meteorologia</title>
 
     </head>
+    
     <body>
         <div class="container">
                
@@ -24,13 +25,49 @@
                 <img class="card-img" src="images/nubes.jpg">
                 <div class="card-img-overlay row justify-content-center">
                     <div class="align-self-center">
-                        <a href="login.html" class="login btn btn-outline-light rounded-pill pl-5 pr-5">Login</a>
+                        <a class="login btn btn-outline-light rounded-pill pl-5 pr-5" id="btnLogin">Login</a>
+
+                        
                         <!--Meter funcion de jquery on click y meter el ajax-->
-                        <a href="register.html" class="ml-4 registro btn btn-outline-light rounded-pill pl-5 pr-5">Register</a> 
+                        <a href="register.html" class="ml-4 registro btn btn-outline-light rounded-pill pl-5 pr-5" id="btnRegistro">Register</a> 
                     </div>
                 </div>
             </div>
                 
         </div>
+
+        <script>
+            $('#btnLogin').on('click', getLogin);
+            $('#btnRegistro').on('click', getRegistro);
+    
+            function getLogin() {
+                $.ajax({
+                    url: 'http://localhost:8000/api/login',
+                    type: 'POST',
+                    success: function(respuesta) {
+                        console.log(respuesta);
+                        //window.location('');
+                    },
+                    error: function() {
+                        console.log("No se ha podido obtener la infomación.");
+                    },
+                    dataType: 'json'
+                });
+            }
+
+            function getRegistro() {
+                $.ajax({
+                    url: 'http://localhost:8000/api/register',
+                    type: 'POST',
+                    success: function(respuesta) {
+                        console.log(respuesta);
+                    },
+                    error: function() {
+                        console.log("No se ha podido obtener la infomación.");
+                    },
+                    dataType: 'json'
+                });
+            }
+        </script>
     </body>
 </html>
