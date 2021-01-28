@@ -23,4 +23,5 @@ p {
 
 .datos {
     border: 2px solid #FF0DF4;
+    visibility: visible;
 }
