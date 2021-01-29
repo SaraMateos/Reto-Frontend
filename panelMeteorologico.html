@@ -193,7 +193,7 @@
                             $.ajax({
                                 url: 'http://localhost:8000/api/logout',
                                 type: 'POST',
-                                headers: {"Authorization": 'Bearer ' + sessionStorage.getItem('token')},
+                                headers: {"Authorization": 'Bearer ' + sessionStorage.getItem('tokenResult')},
                                 success: function(respuesta) {
                                     window.location = 'login.html';
                                 },

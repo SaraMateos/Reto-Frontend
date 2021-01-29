@@ -108,7 +108,7 @@
                                     $.ajax({
                                         url: 'http://localhost:8000/api/login',
                                         type: 'POST',
-                                        headers: {"Authorization": 'Bearer ' + sessionStorage.getItem('token')},
+                                        headers: {"Authorization": 'Bearer ' + sessionStorage.getItem('tokenResult')},
                                         data: ({
                                             email: $('#email').val(),
                                             password: $('#password').val(),
