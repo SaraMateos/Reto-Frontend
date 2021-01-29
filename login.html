@@ -6,6 +6,7 @@
 
         <!-- Scripts -->
         <script src="js/app.js" defer></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
         <!-- Styles -->
         <link href="css/app.css" rel="stylesheet">
@@ -51,8 +52,8 @@
                 <div class="container">
                     <div class="row text-center">
                         <div class="col-md-12 login-form">
-                            <form method="POST" action="login.html">
-                                <input type="hidden" name="_token" value="V6CKqObmSv0eDBDtDtLoXSjBelYIc1PycwbHwCKW">
+
+                            <form id="formLogin">
                                 <div class="row">
                                     <div class="col-md-12 login-form-imagen">
                                         <img src="images/usuario.png" id="imgUsuario" />
@@ -98,6 +99,34 @@
                             </form>
                         </div>
                     </div>
+
+                    <script type="application/javascript">
+                        $(document).ready(function() {
+                                $('#formLogin').submit(function(event) {
+
+                                    event.preventDefault();
+                                    $.ajax({
+                                        url: 'http://localhost:8000/api/login',
+                                        type: 'POST',
+                                        headers: {"Authorization": 'Bearer ' + sessionStorage.getItem('token')},
+                                        data: ({
+                                            email: $('#email').val(),
+                                            password: $('#password').val(),
+                                        }),
+                                        success: function(respuesta) {
+                                            window.location = 'panelMeteorologico.html';
+                                        },
+                                        error: function() {
+                                            console.log("No se ha podido obtener la información.");
+                                        },
+                                        dataType: 'json'
+                                    });
+
+                            });
+                        }); 
+
+                    </script>
+
                 </div>
             </main>
         </div>

@@ -87,7 +87,7 @@
                     <!-- Lado derecho del menu -->
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="login.html">Cerrar Sesión</a>
+                            <a class="nav-link" id="btnLogOut">Cerrar Sesión</a>
                         </li>
                     </ul>
                 </div>
@@ -184,6 +184,28 @@
 
                     </div>
                 </div>
+
+                <script>
+                    $(document).ready(function() {
+                        $('#btnLogOut').on('click', getLogOut);
+        
+                        function getLogOut() {
+                            $.ajax({
+                                url: 'http://localhost:8000/api/logout',
+                                type: 'POST',
+                                headers: {"Authorization": 'Bearer ' + sessionStorage.getItem('token')},
+                                success: function(respuesta) {
+                                    window.location = 'login.html';
+                                },
+                                error: function() {
+                                    console.log("No se ha podido obtener la información.");
+                                },
+                                dataType: 'json'
+                            });
+                        }
+        
+                    }); 
+                </script>
 
             </div>
         </main>
