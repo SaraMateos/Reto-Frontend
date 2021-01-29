@@ -44,9 +44,11 @@
                 function getLogin() {
                     $.ajax({
                         url: 'http://localhost:8000/api/login',
-                        type: 'GET',
+                        type: 'POST',
+                        headers: {"Authorization": 'Bearer ' + sessionStorage.getItem('token')},
                         success: function(respuesta) {
                             console.log(respuesta);
+                            window.location = 'login.html';
                         },
                         error: function() {
                             console.log("No se ha podido obtener la información.");
@@ -63,6 +65,7 @@
                         type: 'POST',
                         success: function(respuesta) {
                             console.log(respuesta);
+                            window.location = 'register.html'
                         },
                         error: function() {
                             console.log("No se ha podido obtener la información.");

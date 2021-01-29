@@ -137,7 +137,7 @@
                                 // Ubicacion de las balizas
                                 for (var i = 0; i < balizas.length; i++) {
                                     marker = new L.marker([balizas[i][2], balizas[i][3]]).on('click', markerOnClick).addTo(map);
-                                    marker.bindPopup("<h4 id='bal" + balizas[i][0] + "'><b>" + balizas[i][1] + "</b></h4> <ul id='listaLaLon'><li>Latitud: " + balizas[i][2] + "</li> <li>Longitud: " + balizas[i][3] + "</li> <li>Longitud: " + balizas[i][4] + "</li> </ul><br> <button id='btnMostrar' onclick='mostrar()'>Ver datos</button>");
+                                    marker.bindPopup("<h4 id='" + balizas[i][0] + "'><b>" + balizas[i][1] + "</b></h4> <ul id='listaLaLon'><li>Latitud: " + balizas[i][2] + "</li> <li>Longitud: " + balizas[i][3] + "</li> <li>Longitud: " + balizas[i][4] + "</li> </ul><br> <button id='btnMostrar' onclick='mostrar()'>Ver datos</button>");
                                 };
 
                                 

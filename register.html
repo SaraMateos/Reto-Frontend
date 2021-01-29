@@ -6,6 +6,7 @@
 
         <!-- Scripts -->
         <script src="js/app.js" defer></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
         <!-- Styles -->
         <link href="css/app.css" rel="stylesheet">
@@ -13,6 +14,28 @@
 
         <title>Registro | Meteorologia</title>
     </head>
+    <script>
+        $(document).ready(function() {
+                $('#btnRegistro').on('click', getRegistro);
+
+                function getRegistro() {
+                    $.ajax({
+                        url: 'http://localhost:8000/api/login',
+                        type: 'POST',
+                        headers: {"Authorization": 'Bearer ' + sessionStorage.getItem('token')},
+                        success: function(respuesta) {
+                            console.log(respuesta);
+                            window.location = respuesta.redirect;
+                        },
+                        error: function() {
+                            console.log("No se ha podido obtener la información.");
+                        },
+                        dataType: 'json'
+                    });
+                }
+            }); 
+    </script>
+
 
     <body>
         <div id="app">
@@ -51,7 +74,7 @@
                 <div class="container">
                     <div class="row text-center">
                         <div class="col-md-12 login-form">
-                            <form method="POST">
+                            <form method="POST" action=getRegistro()> 
                                 <input type="hidden" name="_token" value="V6CKqObmSv0eDBDtDtLoXSjBelYIc1PycwbHwCKW">
                                 <div class="row">
                                     <div class="col-md-12 login-form-imagen">
@@ -92,7 +115,7 @@
 
                                 <div class="form-group row mb-0">
                                     <div class="col-md-12 login-from-boton">
-                                        <button type="submit" class="btn btn-success"> Registrarse </button>
+                                        <button type="submit" class="btn btn-success" onclick="getRegistro()"> Registrarse </button>
                                     </div>
                                 </div>
                             </form>
