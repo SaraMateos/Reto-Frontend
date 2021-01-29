@@ -19,122 +19,126 @@
     
 
     <body>
-        <div>
-            <nav class="navbar navbar-expand-md navbar-dark bg-info shadow-sm">
-                <div class="container">
-                    <a class="navbar-brand" href="register.html">
-                        <img src="images/logo.png" logo="" width="200px" height="46px" />
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+        <nav class="navbar navbar-expand-md navbar-dark bg-info shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="login.html">
+                    <img src="images/logo.png" alt="logo euskalmet" width="200px" height="46px" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
     
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <!-- Lado izquierdo del menu -->
-                        <ul class="navbar-nav mr-auto">
-                            
-                        </ul>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Lado izquierdo del menu -->
+                    <ul class="navbar-nav mr-auto">
     
-                        <!-- Lado derecho del menu -->
-                        <ul class="navbar-nav ml-auto">
-                            <!-- Authentication Links -->
-                            <li class="nav-item">
-                                <a class="nav-link" href="login.html">Iniciar Sesión</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link active" href="register.html">Registrarse</a>
-                            </li>
-                        </ul>
+                    </ul>
+    
+                    <!-- Lado derecho del menu -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Authentication Links -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">Iniciar Sesión</a>
+                        </li>
+    
+                        <li class="nav-item">
+                            <a class="nav-link active" href="register.html">Registrarse</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    
+        <main class="py-4">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-12 login-form">
+    
+                        <form id="formRegistro">
+                            <div class="row">
+                                <div class="col-md-12 login-form-imagen">
+                                    <img src="images/agregarUsuario.png" id="imgUsuario" />
+                                </div>
+                            </div>
+    
+                            <div class="row">
+                                <div class="col-md-12 login-form-header">
+                                    <p class="login-form-font-header">Registro<span>Usuario</span>
+                                    <p>
+                                </div>
+                            </div>
+    
+                            <div class="form-group row">
+                                <div class="ml-5 mr-5 col-md-11 login-from-row">
+                                    <input id="name" type="text" class="form-control " name="name" value=""
+                                        autocomplete="name" autofocus placeholder="Nombre" size="25" required>
+                                </div>
+                            </div>
+    
+                            <div class="form-group row">
+                                <div class="ml-5 mr-5 col-md-11 login-from-row">
+                                    <input id="email" name="email" type="email" class="form-control"
+                                        placeholder="Correo electronico" value="" required autocomplete="email">
+                                </div>
+                            </div>
+    
+                            <div class="form-group row">
+                                <div class="ml-5 mr-5 col-md-11 login-from-row">
+                                    <input id="password" name="password" type="password" class="form-control"
+                                        placeholder="Contraseña" required autocomplete="new-password">
+                                </div>
+                            </div>
+    
+                            <div class="form-group row">
+                                <div class="ml-5 mr-5 col-md-11 login-from-row">
+                                    <input id="password-confirm" name="password_confirmation" type="password"
+                                        class="form-control" placeholder="Confirmar contraseña" required
+                                        autocomplete="new-password">
+                                </div>
+                            </div>
+    
+                            <div class="form-group row mb-0">
+                                <div class="col-md-12 login-from-boton">
+                                    <button type="submit" class="btn btn-info" id="btnRegistro"> Registrarse </button>
+                                </div>
+                            </div>
+                        </form>
+    
                     </div>
                 </div>
-            </nav>
+    
+                <script type="application/javascript">
+                    $(document).ready(function () {
+                        $('#formRegistro').submit(function (event) {
 
-            <main class="py-4">
-                <div class="container">
-                    <div class="row text-center">
-                        <div class="col-md-12 login-form">
-
-                            <form id="formRegistro">
-                                <div class="row">
-                                    <div class="col-md-12 login-form-imagen">
-                                        <img src="images/agregarUsuario.png" id="imgUsuario" />
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-12 login-form-header">
-                                        <p class="login-form-font-header">Registro<span>Usuario</span>
-                                        <p>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="ml-5 mr-5 col-md-11 login-from-row">
-                                        <input id="name" type="text" class="form-control " name="name" value="" autocomplete="name" autofocus placeholder="Nombre" size="25" required>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="ml-5 mr-5 col-md-11 login-from-row">
-                                        <input id="email" name="email" type="email" class="form-control" placeholder="Correo electronico" value="" required autocomplete="email">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="ml-5 mr-5 col-md-11 login-from-row">
-                                        <input id="password" name="password" type="password" class="form-control" placeholder="Contraseña" required autocomplete="new-password">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="ml-5 mr-5 col-md-11 login-from-row">
-                                        <input id="password-confirm" name="password_confirmation" type="password" class="form-control" placeholder="Confirmar contraseña" required autocomplete="new-password">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row mb-0">
-                                    <div class="col-md-12 login-from-boton">
-                                        <button type="submit" class="btn btn-info" id="btnRegistro"> Registrarse </button>
-                                    </div>
-                                </div>
-                            </form>
-
-                        </div>
-                    </div>
-
-                    <script type="application/javascript">
-                        $(document).ready(function() {
-                                $('#formRegistro').submit(function(event) {
-
-                                    event.preventDefault();
-                                    $.ajax({
-                                        url: 'http://localhost:8000/api/register',
-                                        type: 'POST',
-                                        data: ({
-                                            name: $('#name').val(),
-                                            email: $('#email').val(),
-                                            password: $('#password').val(),
-                                        }),
-                                        success: function(respuesta) {
-                                            window.location = 'login.html';
-                                        },
-                                        error: function() {
-                                            console.log("No se ha podido obtener la información.");
-                                        },
-                                        dataType: 'json'
-                                    });
-
+                            event.preventDefault();
+                            $.ajax({
+                                url: 'http://localhost:8000/api/register',
+                                type: 'POST',
+                                data: ({
+                                    name: $('#name').val(),
+                                    email: $('#email').val(),
+                                    password: $('#password').val(),
+                                }),
+                                success: function (respuesta) {
+                                    window.location = 'login.html';
+                                },
+                                error: function () {
+                                    alert("No se ha podido obtener la información. Prueba de nuevo.")
+                                    console.log("No se ha podido obtener la información.");
+                                },
+                                dataType: 'json'
                             });
-                        }); 
 
-                    </script>
+                        });
+                    });
 
-                </div>
-            </main>
-
-        </div>
+                </script>
+    
+            </div>
+        </main>
+    
     </body>
 
 </html>

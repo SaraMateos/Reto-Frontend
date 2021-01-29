@@ -6,20 +6,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Styles -->
-        <link href="css/app.css" rel="stylesheet">
-        <link href="css/estiloIframes.css" rel="stylesheet">
+        <link href="css/estiloIframes.css" rel="stylesheet" />
 
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+            integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+            crossorigin="" />
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+            integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+            crossorigin="" />
 
-        <!-- Scripts -->
-        <script src="js/app.js"></script>
-        <script src="js/balizas.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-
-        <script>
+        <script type="text/javascript">
             function allowDrop(ev) {
                 ev.preventDefault();
             }
@@ -36,40 +34,41 @@
         </script>
 
         <!-- <script>
-            function leeBalizas() {
-                var divResultado = document.getElementById('map');
-                var xmlhttp = new XMLHttpRequest();
+                function leeBalizas() {
+                    var divResultado = document.getElementById('map');
+                    var xmlhttp = new XMLHttpRequest();
 
-                xmlhttp.onreadystatechange = function () {
+                    xmlhttp.onreadystatechange = function () {
 
-                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                        console.log(xmlhttp.responseText);
-                        var jResp = JSON.parse(xmlhttp.responseText);
+                        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                            console.log(xmlhttp.responseText);
+                            var jResp = JSON.parse(xmlhttp.responseText);
 
-                        for (var i = 0; i < jResp.length; i++) {
-                            marker = new L.marker([jResp[i]["Latitud"], jResp[i]["Longitud"]]).on('click', markerOnClick).addTo(map);
-                            marker.bindPopup("<h4 id='bal" + jResp[i]["Nombre"] + "'><b>" + jResp[i]["Nombre"] + "</b></h4> <ul id='listaLaLon'><li>Latitud: " + jResp[i]["Latitud"] + "</li> <li>Longitud: " + jResp[i]["Longitud"] + "</li> </ul>");
+                            for (var i = 0; i < jResp.length; i++) {
+                                marker = new L.marker([jResp[i]["Latitud"], jResp[i]["Longitud"]]).on('click', markerOnClick).addTo(map);
+                                marker.bindPopup("<h4 id='bal" + jResp[i]["Nombre"] + "'><b>" + jResp[i]["Nombre"] + "</b></h4> <ul id='listaLaLon'><li>Latitud: " + jResp[i]["Latitud"] + "</li> <li>Longitud: " + jResp[i]["Longitud"] + "</li> </ul>");
+                            }
+                            divResultado.innerHTML = sSalida;
+
                         }
-                        divResultado.innerHTML = sSalida;
-
                     }
                 }
-            }
-            xmlhttp.open("GET", "AccesoDatos.php");
-            xmlhttp.send();
-        </script> -->
+                xmlhttp.open("GET", "AccesoDatos.php");
+                xmlhttp.send();
+            </script> -->
 
 
-        
+
         <title>Panel Meteorologico | Meteorologia</title>
     </head>
 
 
     <body>
-        <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
+        <!-- Menu -->
+        <nav class="navbar navbar-expand-md navbar-dark bg-info shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="register.html">
-                    <img src="images/clima.png" logo="" height="70px" width="70px" />
+                    <img src="images/logo.png" width="200px" height="46px" />
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,25 +79,26 @@
                     <!-- Lado izquierdo del menu -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="panelMeteorologico.html">Inicio</a>
+                            <a class="nav-link active" href="panelMeteorologico.html">Inicio</a>
                         </li>
                     </ul>
 
                     <!-- Lado derecho del menu -->
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" id="btnLogOut">Cerrar Sesión</a>
+                            <a class="nav-link" id="btnLogOut" href="login.html">Cerrar Sesión</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
 
+        <!-- Container -->
         <main class="py-5">
             <div class="container-fluid">
 
                 <!-- LADO IZQUIERDO (MAPA) -->
-                <div class="estilo col-md-6 clearfix float-left">
+                <div class="estilo collg-12 col-md-6 clearfix float-left">
 
                     <div class="m-5">
 
@@ -107,42 +107,42 @@
 
                         <script>
 
-                                var map = L.map('map').setView([43.00, -2.51], 9);
+                            var map = L.map('map').setView([43.00, -2.51], 9);
 
-                                L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                                    attribution: 'Map data &copy',
-                                    minZoom: 5,
-                                    maxZoom: 16
-                                }).addTo(map);
+                            L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                attribution: 'Map data &copy',
+                                minZoom: 5,
+                                maxZoom: 16
+                            }).addTo(map);
 
-                                L.control.scale().addTo(map);
+                            L.control.scale().addTo(map);
 
-                                //Marcador al clickar
-                                var icono = new L.Icon({
-                                    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
-                                    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-                                    iconSize: [25, 41],
-                                    iconAnchor: [12, 41],
-                                    popupAnchor: [1, -34],
-                                    shadowSize: [41, 41]
-                                });
+                            //Marcador al clickar
+                            var icono = new L.Icon({
+                                iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+                                shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41],
+                                popupAnchor: [1, -34],
+                                shadowSize: [41, 41]
+                            });
 
-                                //Cambiar color al clickar
-                                function markerOnClick() {
-                                    this.setIcon(icono);
-                                }
+                            //Cambiar color al clickar
+                            function markerOnClick() {
+                                this.setIcon(icono);
+                            }
 
-                                // Ubicacion de las balizas
-                                for (var i = 0; i < balizas.length; i++) {
-                                    marker = new L.marker([balizas[i][2], balizas[i][3]]).on('click', markerOnClick).addTo(map);
-                                    marker.bindPopup("<p id='" + balizas[i][0] + "'>" + balizas[i][1] + "</p> <p id='listaLaLon'>Latitud: " + balizas[i][2] + "</p> <p>Longitud: " + balizas[i][3] + "</p> <p>Longitud: " + balizas[i][4] + "</p><br> <button class='btn btn-dark' id='btnMostrar' onclick='mostrar()'>Ver datos</button>");
-                                };
+                            // Ubicacion de las balizas
+                            for (var i = 0; i < balizas.length; i++) {
+                                marker = new L.marker([balizas[i][2], balizas[i][3]]).on('click', markerOnClick).addTo(map);
+                                marker.bindPopup("<p id='" + balizas[i][0] + "'>" + balizas[i][1] + "</p> <p id='listaLaLon'>Latitud: " + balizas[i][2] + "</p> <p>Longitud: " + balizas[i][3] + "</p> <p>Longitud: " + balizas[i][4] + "</p><br> <button class='btn btn-dark' id='btnMostrar' onclick='mostrar()'>Ver datos</button>");
+                            };
 
-                                function mostrar() {
-                                    div = document.getElementById("datos");
-                                    div.style.background= 'blue';
-                                    //alert('has clicado en la baliza');
-                                }
+                            function mostrar() {
+                                div = document.getElementById("datos");
+                                //div.style.background = 'blue';
+                                alert('has clicado en la baliza');
+                            }
 
                         </script>
 
@@ -164,16 +164,16 @@
 
                             <div class="elegirDatos" ondragover="allowDrop(event);" ondrop="drop(event);">
                                 <ul>
-                                    <li id="drag-3" class="m-3 boton" draggable="true" ondragstart="drag(event)">Temperatura</li>
-                                    <li id="drag-4" class="m-3 boton" draggable="true" ondragstart="drag(event)">Humedad (%)</li>
-                                    <li id="drag-1" class="m-3 boton" draggable="true" ondragstart="drag(event)">Vel. Viento</li>
-                                    <li id="drag-2" class="m-3 boton" draggable="true" ondragstart="drag(event)">Dir. Viento</li>
+                                    <li id="drag-1" class="m-3 boton" draggable="true" ondragstart="drag(event)">Temperatura</li>
+                                    <li id="drag-2" class="m-3 boton" draggable="true" ondragstart="drag(event)">Humedad (%)</li>
+                                    <li id="drag-3" class="m-3 boton" draggable="true" ondragstart="drag(event)">Vel. Viento</li>
+                                    <li id="drag-4" class="m-3 boton" draggable="true" ondragstart="drag(event)">Dir. Viento</li>
                                     <li id="drag-5" class="m-3 boton" draggable="true" ondragstart="drag(event)">Precipitaciones</li>
                                 </ul>
                             </div>
 
-                            <div class="col-sm-4 mb-3">
-                                <div class="datos" ondrop="drop(event)" ondragover="allowDrop(event)" style="background-color: royalblue;">
+                            <div class="col-sm-5 mb-3">
+                                <div class="datos divDatos" ondrop="drop(event)" ondragover="allowDrop(event)">
                                     <p class="m-3">Higer</p>
                                     <p class="m-3">Temperatura: 13 ºC</p>
                                     <p class="m-3">Humedad: 60%</p>
@@ -186,30 +186,39 @@
                 </div>
 
                 <script>
-                    $(document).ready(function() {
+                    $(document).ready(function () {
                         $('#btnLogOut').on('click', getLogOut);
-        
+
                         function getLogOut() {
                             $.ajax({
                                 url: 'http://localhost:8000/api/logout',
                                 type: 'POST',
-                                headers: {"Authorization": 'Bearer ' + sessionStorage.getItem('tokenResult')},
-                                success: function(respuesta) {
+                                headers: { "Authorization": 'Bearer ' + sessionStorage.getItem('tokenResult') },
+                                success: function (respuesta) {
                                     window.location = 'login.html';
                                 },
-                                error: function() {
+                                error: function () {
+                                    alert("No se ha podido obtener la información. Prueba de nuevo.")
                                     console.log("No se ha podido obtener la información.");
                                 },
                                 dataType: 'json'
                             });
                         }
-        
+
                     }); 
                 </script>
 
             </div>
         </main>
+        <!-- Scripts -->
+        <script src="js/balizas.js"></script>
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
     </body>
 
 </html>

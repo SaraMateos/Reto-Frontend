@@ -4,12 +4,6 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Scripts -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
         <!-- Styles -->
         <link href="css/estiloLR.css" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -18,112 +12,112 @@
     </head>
 
     <body>
-        <div >
-            <nav class="navbar navbar-expand-md navbar-dark bg-info shadow-sm">
-                <div class="container">
-                    <a class="navbar-brand" href="register.html">
-                        <img src="images/logo.png" width="200px" height="46px"  />
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-    
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <!-- Lado izquierdo del menu -->
-                        <ul class="navbar-nav mr-auto">
-                            
-                        </ul>
-    
-                        <!-- Lado derecho del menu -->
-                        <ul class="navbar-nav ml-auto">
-                            <!-- Authentication Links -->
-                            <li class="nav-item">
-                                <a class="nav-link active" href="login.html">Iniciar Sesión</a>
-                            </li>
+        <nav class="navbar navbar-expand-md navbar-dark bg-info shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="login.html">
+                    <img src="images/logo.png" alt="logo euskalmet" width="200px" height="46px" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="register.html">Registrarse</a>
-                            </li>
-                        </ul>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Lado izquierdo del menu -->
+                    <ul class="navbar-nav mr-auto">
+
+                    </ul>
+
+                    <!-- Lado derecho del menu -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Authentication Links -->
+                        <li class="nav-item">
+                            <a class="nav-link active" href="login.html">Iniciar Sesión</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="register.html">Registrarse</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <main class="py-5">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-12 login-form">
+
+                        <form id="formLogin">
+                            <div class="row">
+                                <div class="col-md-12 login-form-imagen">
+                                    <img src="images/usuario.png" alt="imagen usuario" id="imgUsuario" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 login-form-header">
+                                    <p class="login-form-font-header">Iniciar<span>Sesión</span><p>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="ml-5 mr-5 col-md-11 login-from-row">
+                                    <input id="email" name="email" type="email" class="form-control" placeholder="Correo electronico" value="" required autocomplete="email" autofocus>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="ml-5 mr-5 col-md-11 login-from-row">
+                                    <input id="password" name="password" type="password" class="form-control" placeholder="Contraseña" required autocomplete="current-password">
+                                </div>
+                            </div>
+
+                            <div class="form-group row mb-0">
+                                <div class="col-md-12 login-from-boton">
+                                    <button type="submit" id="btnIniciar" class="btn btn-info pull-right"> Acceder </button>
+                                    <button id="btnRegistrar" class="btn btn-info pull-right"><a href="register.html">Registrarse</a> </button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
-            </nav>
 
-            <main class="py-5">
-                <div class="container">
-                    <div class="row text-center">
-                        <div class="col-md-12 login-form">
+                <script type="application/javascript">
+                    $(document).ready(function () {
+                        $('#formLogin').submit(function (event) {
 
-                            <form id="formLogin">
-                                <div class="row">
-                                    <div class="col-md-12 login-form-imagen">
-                                        <img src="images/usuario.png" id="imgUsuario" />
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12 login-form-header">
-                                        <p class="login-form-font-header">Iniciar<span>Sesión</span>
-                                        <p>
-                                    </div>
-                                </div>
-
-
-                                <div class="form-group row">
-                                    <div class="ml-5 mr-5 col-md-11 login-from-row">
-                                        <input id="email" name="email" type="email" class="form-control "
-                                            placeholder="Correo electronico" value="" required autocomplete="email"
-                                            autofocus>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="ml-5 mr-5 col-md-11 login-from-row">
-                                        <input id="password" name="password" type="password" class="form-control "
-                                            placeholder="Contraseña" required autocomplete="current-password">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row mb-0">
-                                    <div class="col-md-12 login-from-boton">
-                                        <button type="submit" id="btnIniciar" class="btn btn-info pull-right"> Acceder </button>
-                                        <button id="btnRegistrar" class="btn btn-info pull-right"><a href="register.html">Registrarse</a> </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
-                    <script type="application/javascript">
-                        $(document).ready(function() {
-                                $('#formLogin').submit(function(event) {
-
-                                    event.preventDefault();
-                                    $.ajax({
-                                        url: 'http://localhost:8000/api/login',
-                                        type: 'POST',
-                                        headers: {"Authorization": 'Bearer ' + sessionStorage.getItem('tokenResult')},
-                                        data: ({
-                                            email: $('#email').val(),
-                                            password: $('#password').val(),
-                                        }),
-                                        success: function(respuesta) {
-                                            window.location = 'panelMeteorologico.html';
-                                        },
-                                        error: function() {
-                                            console.log("No se ha podido obtener la información.");
-                                        },
-                                        dataType: 'json'
-                                    });
-
+                            event.preventDefault();
+                            $.ajax({
+                                url: 'http://localhost:8000/api/login',
+                                type: 'POST',
+                                data: ({
+                                    email: $('#email').val(),
+                                    password: $('#password').val(),
+                                }),
+                                success: function (respuesta) {
+                                    sessionStorage.setItem('tokenResult', respuesta.token);
+                                    window.location = 'panelMeteorologico.html';
+                                },
+                                error: function () {
+                                    alert("No se ha podido obtener la información. Prueba de nuevo.")
+                                    console.log("No se ha podido obtener la información.");
+                                },
+                                dataType: 'json'
                             });
-                        }); 
 
-                    </script>
+                        });
+                    });
 
-                </div>
-            </main>
-        </div>
+                </script>
+
+            </div>
+        </main>
+
+        <!-- Scripts -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     </body>
 
 </html>
