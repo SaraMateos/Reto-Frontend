@@ -33,8 +33,6 @@
                 var data = ev.dataTransfer.getData("text");
                 ev.target.appendChild(document.getElementById(data));
             }
-
-            
         </script>
 
         <!-- <script>
@@ -137,25 +135,14 @@
                                 // Ubicacion de las balizas
                                 for (var i = 0; i < balizas.length; i++) {
                                     marker = new L.marker([balizas[i][2], balizas[i][3]]).on('click', markerOnClick).addTo(map);
-                                    marker.bindPopup("<h4 id='" + balizas[i][0] + "'><b>" + balizas[i][1] + "</b></h4> <ul id='listaLaLon'><li>Latitud: " + balizas[i][2] + "</li> <li>Longitud: " + balizas[i][3] + "</li> <li>Longitud: " + balizas[i][4] + "</li> </ul><br> <button id='btnMostrar' onclick='mostrar()'>Ver datos</button>");
+                                    marker.bindPopup("<p id='" + balizas[i][0] + "'>" + balizas[i][1] + "</p> <p id='listaLaLon'>Latitud: " + balizas[i][2] + "</p> <p>Longitud: " + balizas[i][3] + "</p> <p>Longitud: " + balizas[i][4] + "</p><br> <button class='btn btn-dark' id='btnMostrar' onclick='mostrar()'>Ver datos</button>");
                                 };
 
-                                
-                                // $(document).ready(function() {
-                                //     $("button#btnMostrar").click(function() {
-                                //         $(".datos").hide();
-                                //     });
-                                // });
-
-                                //Mostrar divs
-                                $(document).ready(function() {
-                                    $(".datos").hide();
-
-                                    $('#btnMostrar').on('click', function() {
-                                        alert('hola');
-                                    }).show();
-                                });
-            
+                                function mostrar() {
+                                    div = document.getElementById("datos");
+                                    div.style.background= 'blue';
+                                    //alert('has clicado en la baliza');
+                                }
 
                         </script>
 
@@ -186,15 +173,7 @@
                             </div>
 
                             <div class="col-sm-4 mb-3">
-                                <div class="datos" ondrop="drop(event)" ondragover="allowDrop(event)">
-                                    <p class="m-3">Higer</p>
-                                    <p class="m-3">Temperatura: 13 ºC</p>
-                                    <p class="m-3">Humedad: 60%</p>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-4 mb-3">
-                                <div class="datos" ondragover="allowDrop(event);" ondrop="drop(event);">
+                                <div class="datos" ondrop="drop(event)" ondragover="allowDrop(event)" style="background-color: royalblue;">
                                     <p class="m-3">Higer</p>
                                     <p class="m-3">Temperatura: 13 ºC</p>
                                     <p class="m-3">Humedad: 60%</p>

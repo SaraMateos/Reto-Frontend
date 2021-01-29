@@ -45,9 +45,7 @@
                     $.ajax({
                         url: 'http://localhost:8000/api/login',
                         type: 'POST',
-                        headers: {"Authorization": 'Bearer ' + sessionStorage.getItem('token')},
                         success: function(respuesta) {
-                            console.log(respuesta);
                             window.location = 'login.html';
                         },
                         error: function() {
@@ -64,7 +62,6 @@
                         url: 'http://localhost:8000/api/register',
                         type: 'POST',
                         success: function(respuesta) {
-                            console.log(respuesta);
                             window.location = 'register.html'
                         },
                         error: function() {

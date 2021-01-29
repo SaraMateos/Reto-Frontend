@@ -14,28 +14,7 @@
 
         <title>Registro | Meteorologia</title>
     </head>
-    <script>
-        $(document).ready(function() {
-                $('#btnRegistro').on('click', getRegistro);
-
-                function getRegistro() {
-                    $.ajax({
-                        url: 'http://localhost:8000/api/login',
-                        type: 'POST',
-                        headers: {"Authorization": 'Bearer ' + sessionStorage.getItem('token')},
-                        success: function(respuesta) {
-                            console.log(respuesta);
-                            window.location = respuesta.redirect;
-                        },
-                        error: function() {
-                            console.log("No se ha podido obtener la información.");
-                        },
-                        dataType: 'json'
-                    });
-                }
-            }); 
-    </script>
-
+    
 
     <body>
         <div id="app">
@@ -74,8 +53,8 @@
                 <div class="container">
                     <div class="row text-center">
                         <div class="col-md-12 login-form">
-                            <form method="POST" action=getRegistro()> 
-                                <input type="hidden" name="_token" value="V6CKqObmSv0eDBDtDtLoXSjBelYIc1PycwbHwCKW">
+
+                            <form id="formRegistro" method="POST">
                                 <div class="row">
                                     <div class="col-md-12 login-form-imagen">
                                         <img src="images/agregarUsuario.png" id="imgUsuario" />
@@ -115,14 +94,38 @@
 
                                 <div class="form-group row mb-0">
                                     <div class="col-md-12 login-from-boton">
-                                        <button type="submit" class="btn btn-success" onclick="getRegistro()"> Registrarse </button>
+                                        <button type="submit" class="btn btn-success" id="btnRegistro"> Registrarse </button>
                                     </div>
                                 </div>
                             </form>
+
                         </div>
                     </div>
+
+                    <script type="application/javascript">
+                        $(document).ready(function() {
+                                $('#btnRegistro').submit('click', getRegistro);
+                
+                                function getRegistro() {
+                                    $.ajax({
+                                        url: 'http://localhost:8000/api/login',
+                                        type: 'POST',
+                                        success: function(respuesta) {
+                                            window.location = 'login.html';
+                                        },
+                                        error: function() {
+                                            console.log("No se ha podido obtener la información.");
+                                        },
+                                        dataType: 'json'
+                                    });
+                                }
+                            }); 
+
+                    </script>
+
                 </div>
             </main>
+
         </div>
     </body>
 
