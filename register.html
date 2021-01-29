@@ -54,7 +54,7 @@
                     <div class="row text-center">
                         <div class="col-md-12 login-form">
 
-                            <form id="formRegistro" method="POST">
+                            <form id="formRegistro">
                                 <div class="row">
                                     <div class="col-md-12 login-form-imagen">
                                         <img src="images/agregarUsuario.png" id="imgUsuario" />
@@ -104,12 +104,17 @@
 
                     <script type="application/javascript">
                         $(document).ready(function() {
-                                $('#btnRegistro').submit('click', getRegistro);
-                
-                                function getRegistro() {
+                                $('#formRegistro').submit(function(event) {
+
+                                    event.preventDefault();
                                     $.ajax({
-                                        url: 'http://localhost:8000/api/login',
+                                        url: 'http://localhost:8000/api/register',
                                         type: 'POST',
+                                        data: ({
+                                            name: $('#name').val(),
+                                            email: $('#email').val(),
+                                            password: $('#password').val(),
+                                        }),
                                         success: function(respuesta) {
                                             window.location = 'login.html';
                                         },
@@ -118,8 +123,9 @@
                                         },
                                         dataType: 'json'
                                     });
-                                }
-                            }); 
+
+                            });
+                        }); 
 
                     </script>
 
