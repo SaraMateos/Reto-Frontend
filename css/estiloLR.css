@@ -1,5 +1,38 @@
+body {
+    background-image: url('../images/fondo.jpg');
+    background-position: center center;
+    background-attachment: fixed;
+    background-attachment: cover;
+    background-color: #ffffff;
+    background-repeat: no-repeat;
+}
+
+.nav-link {
+    color: #ffffff !important;
+}
+
+.nav-link:hover {
+    color: #0000ff !important;
+    border-bottom: 6px solid #004581;
+    padding-bottom: 2px;
+}
+
+.active {
+    color: #000000;
+    border-bottom: 6px solid #001b48;
+    padding-bottom: 2px;
+}
+
+a {
+    color: #ffffff !important;
+}
+
+a:link {
+    text-decoration: none !important;
+}
+
 .login-form {
-    box-shadow: 0 0 27px 0 rgba(84, 84, 84, 0.62);
+    box-shadow: 0 0 27px 0 #dde8f0;
 }
 
 #imgUsuario {
@@ -18,7 +51,7 @@
   
 .login-form-font-header span {
     margin-top: 10px;
-    color:  #59C8E4;
+    color:  #018abd;
 }
   
 .login-from-row {
@@ -31,16 +64,6 @@
     padding-bottom: 30px;
 }
 
-.or-seperator {
-    margin: 25px 0 5px;
-    text-align: center;
-    border-top: 1px solid #ccc;
-}
-
-.or-seperator i {
-    padding: 0 10px;
-    background:  #f8fafc;
-    position: relative;
-    top: -11px;
-    z-index: 1;
+.btn-color {
+    background-color: coral !important;
 }
