@@ -24,12 +24,12 @@ function mostrar() {
     datosMeteo.style.marginLeft = '3%';
     datosMeteo.style.listStyle = 'none';
 
-    setInterval(temperatura, 1000);
-    setInterval(humedad, 1000);
-    setInterval(viento, 1000);
-    setInterval(vientoMax, 1000);
-    setInterval(vientoDir, 1000);
-    setInterval(precipitaciones, 1000);
+    // setInterval(temperatura, 1000);
+    // setInterval(humedad, 1000);
+    // setInterval(viento, 1000);
+    // setInterval(vientoMax, 1000);
+    // setInterval(vientoDir, 1000);
+    // setInterval(precipitaciones, 1000);
 }
 
 function temperatura() {
