@@ -4,19 +4,23 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    
         <!-- Styles -->
         <link href="css/estiloIframes.css" rel="stylesheet" />
-
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-            integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-            crossorigin="" />
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-            integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-            crossorigin="" />
-
+    
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+    
+        <!-- Scripts -->
+        <script src="js/balizas.js"></script>
+    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"  integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    
         <script type="text/javascript">
             function allowDrop(ev) {
                 ev.preventDefault();
@@ -32,33 +36,32 @@
                 ev.target.appendChild(document.getElementById(data));
             }
         </script>
-
+    
         <!-- <script>
-                function leeBalizas() {
-                    var divResultado = document.getElementById('map');
-                    var xmlhttp = new XMLHttpRequest();
+            // function leeBalizas() {
+            //     var divResultado = document.getElementById('map');
+            //     var xmlhttp = new XMLHttpRequest();
 
-                    xmlhttp.onreadystatechange = function () {
+            //     xmlhttp.onreadystatechange = function () {
 
-                        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                            console.log(xmlhttp.responseText);
-                            var jResp = JSON.parse(xmlhttp.responseText);
+            //         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            //             console.log(xmlhttp.responseText);
+            //             var jResp = JSON.parse(xmlhttp.responseText);
 
-                            for (var i = 0; i < jResp.length; i++) {
-                                marker = new L.marker([jResp[i]["Latitud"], jResp[i]["Longitud"]]).on('click', markerOnClick).addTo(map);
-                                marker.bindPopup("<h4 id='bal" + jResp[i]["Nombre"] + "'><b>" + jResp[i]["Nombre"] + "</b></h4> <ul id='listaLaLon'><li>Latitud: " + jResp[i]["Latitud"] + "</li> <li>Longitud: " + jResp[i]["Longitud"] + "</li> </ul>");
-                            }
-                            divResultado.innerHTML = sSalida;
+            //             for (var i = 0; i < jResp.length; i++) {
+            //                 marker = new L.marker([jResp[i]["Latitud"], jResp[i]["Longitud"]]).on('click', markerOnClick).addTo(map);
+            //                 marker.bindPopup("Nombre: " + jResp[i]["nombre"] + "<br> Latitud: " + jResp[i]["Latitud"] + "<br>Longitud: " + jResp[i]["Longitud"] + "<br>Altitud: " + balizas[i][4] + "<br><button id='btnMostrar' onclick='mostrar()'>Ver datos</button>");
+            //             }
 
-                        }
-                    }
-                }
-                xmlhttp.open("GET", "AccesoDatos.php");
-                xmlhttp.send();
-            </script> -->
-
-
-
+            //         }
+            //     }
+            // }
+            // xmlhttp.open("GET", "AccesoDatos.php");
+            // xmlhttp.send();
+        </script> -->
+    
+    
+    
         <title>Panel Meteorologico | Meteorologia</title>
     </head>
 
@@ -132,10 +135,10 @@
                                 this.setIcon(icono);
                             }
 
-                            // Ubicacion de las balizas
+                            //Ubicacion de las balizas
                             for (var i = 0; i < balizas.length; i++) {
                                 marker = new L.marker([balizas[i][2], balizas[i][3]]).on('click', markerOnClick).addTo(map);
-                                marker.bindPopup("<p id='" + balizas[i][0] + "'>" + balizas[i][1] + "</p> <p id='listaLaLon'>Latitud: " + balizas[i][2] + "</p> <p>Longitud: " + balizas[i][3] + "</p> <p>Longitud: " + balizas[i][4] + "</p><br> <button class='btn btn-dark' id='btnMostrar' onclick='mostrar()'>Ver datos</button>");
+                                marker.bindPopup("Nombre: " + balizas[i][1] + "<br> Latitud: " + balizas[i][2] + "<br>Longitud: " + balizas[i][3] + "<br>Altitud: " + balizas[i][4] + "<br><button id='btnMostrar' onclick='mostrar()'>Ver datos</button>");
                             };
 
                             function mostrar() {
@@ -193,7 +196,6 @@
                             $.ajax({
                                 url: 'http://localhost:8000/api/logout',
                                 type: 'POST',
-                                headers: { "Authorization": 'Bearer ' + sessionStorage.getItem('tokenResult') },
                                 success: function (respuesta) {
                                     window.location = 'login.html';
                                 },
@@ -210,15 +212,7 @@
 
             </div>
         </main>
-        <!-- Scripts -->
-        <script src="js/balizas.js"></script>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+        
     </body>
 
 </html>

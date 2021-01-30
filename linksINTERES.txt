@@ -1,8 +1,0 @@
-Colores marcadores:
-https://github.com/pointhi/leaflet-color-markers
-
-Drag and Drop:
-https://www.digitalocean.com/community/tutorials/js-drag-and-drop-vanilla-js-es
-
-Ajax para el login
-https://stackoverflow.com/questions/29137486/how-can-i-call-web-api-controller-from-ajax
