@@ -63,12 +63,9 @@ li.boton:hover {
     background: #a0c5cf;
 }
 
-.datos {
-    border: 4px solid #97cbdc;
-}
-
 .divDatos {
     background-color: #dde8f0;
+    border: 4px solid #97cbdc;
 }
 
 #btnMostrar{
