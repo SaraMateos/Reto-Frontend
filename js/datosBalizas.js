@@ -12,15 +12,13 @@ function mostrar() {
     var texto3 = document.createElement("li");
     texto3.innerText = viento();
 
-    var btnActua = document.createElement("button");
-    btnActua.setAttribute('id', 'btnActualizar');
-    btnActua.setAttribute('onclick', 'actualizarDatos()');
-    btnActua.innerText = 'Actualizar';
+    var texto4 = document.createElement("li");
+    texto4.innerText = precipitaciones();
 
     datosMeteo.appendChild(texto1);
     datosMeteo.appendChild(texto2);
     datosMeteo.appendChild(texto3);
-    datosMeteo.appendChild(btnActua);
+    datosMeteo.appendChild(texto4);
 
     document.getElementById('panel').appendChild(datosMeteo);
 
@@ -32,7 +30,7 @@ function mostrar() {
 }
 
 function temperatura() {
-    var num = Math.floor((Math.random() * 240) + 1) / 10;
+    var num = Math.floor((Math.random() * 300) + 1) / 10;
     return "Temperatura: " + num + " ºC";
 }
 
