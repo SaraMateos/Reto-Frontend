@@ -15,6 +15,7 @@
         <!-- Scripts -->
         <script src="js/balizas.js"></script>
         <script src="js/datosBalizas.js"></script>
+        <script src="js/dragDrop.js"></script>
 
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     
@@ -23,24 +24,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"  integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-    
-        <script type="text/javascript">
-            function allowDrop(ev) {
-                ev.preventDefault();
-            }
 
-            function drag(ev) {
-                ev.dataTransfer.setData("text", ev.target.id);
-            }
-
-            function drop(ev) {
-                ev.preventDefault();
-                var data = ev.dataTransfer.getData("text");
-                ev.target.appendChild(document.getElementById(data));
-            }
-        </script>
-    
-    
     
         <title>Panel Meteorologico | Meteorologia</title>
     </head>
@@ -118,7 +102,7 @@
                             //Ubicacion de las balizas
                             for (var i = 0; i < balizas.length; i++) {
                                 marker = new L.marker([balizas[i][2], balizas[i][3]]).on('click', markerOnClick).addTo(map);
-                                marker.bindPopup("Nombre: " + balizas[i][1] + "<br> Latitud: " + balizas[i][2] + "<br>Longitud: " + balizas[i][3] + "<br>Altitud: " + balizas[i][4] + "<br><button id='btnMostrar' onclick='mostrar()'>Ver datos</button>");
+                                marker.bindPopup("<p id=''> Nombre: " + balizas[i][0] + "<br> Latitud: " + balizas[i][2] + "<br>Longitud: " + balizas[i][3] + "<br>Altitud: " + balizas[i][4] + "</p><button id='btnMostrar' onclick='mostrar()'>Ver datos</button>");
                             };
 
                         </script>
@@ -175,7 +159,50 @@
                             });
                         }
 
-                    }); 
+                    });
+                
+
+                    // function leerTablasBalizas() {
+
+                    //     var divResultado = document.getElementById('panel');
+                    //     var xmlhttp = new XMLHttpRequest();
+
+                    //     xmlhttp.onreadystatechange =
+                    //         function() {
+                    //             var sSalida = "";
+                    //             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    //                 console.log(xmlhttp.responseText);
+                    //                 var jResp = JSON.parse(xmlhttp.responseText);
+
+                    //                 sSalida += "<h3><b></b></h3>";
+                    //                 sSalida += "<table border='1'>";
+
+                    //                 for (var i = 0; i < jResp.length; i++) {
+
+                    //                     sSalida += "<tr>";
+
+                    //                     sSalida += "<td>" + jResp[i]["id"] + "</td>";
+                    //                     sSalida += "<td>" + jResp[i]["nombre"] + "</td>";
+                    //                     sSalida += "<td>" + jResp[i]["temperatura"] + "</td>";
+                    //                     sSalida += "<td>" + jResp[i]["humedad"] + "</td>";
+                    //                     sSalida += "<td>" + jResp[i]["viento"] + "</td>";
+                    //                     sSalida += "<td>" + jResp[i]["vientoMax"] + "</td>";
+                    //                     sSalida += "<td>" + jResp[i]["vientoDir"] + "</td>";
+                    //                     sSalida += "<td>" + jResp[i]["precipitacion"] + "</td>";
+
+                    //                     sSalida += "</tr>";
+                    //                 }
+
+                    //                 sSalida += "</table>";
+                    //                 divResultado.innerHTML = sSalida;
+                    //             }
+                    //         }
+                    //     xmlhttp.open("GET", "AccesoDatos.php");
+                    //     xmlhttp.send();
+
+                    // }
+
+        
                 </script>
 
             </div>

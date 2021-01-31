@@ -18,8 +18,8 @@ body {
 }
 
 .active {
-    color: #000000;
-    border-bottom: 6px solid #001b48;
+    color: #000000 !important;
+    border-bottom: 6px solid #001b48 !important;
     padding-bottom: 2px;
 }
 
@@ -62,8 +62,4 @@ a:link {
 .login-from-boton {
     padding-top: 10px;
     padding-bottom: 30px;
-}
-
-.btn-color {
-    background-color: coral !important;
 }

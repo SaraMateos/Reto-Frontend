@@ -29,7 +29,7 @@ function mostrar() {
     datosMeteo.style.listStyle = 'none';
 }
 
-function temperatura() {
+function temperatura(texto3) {
     var num = Math.floor((Math.random() * 300) + 1) / 10;
     return "Temperatura: " + num + " ºC";
 }
