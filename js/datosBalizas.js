@@ -1,3 +1,4 @@
+//Función que crea el div al pulsar sobre el botón
 function mostrar() {
 
     var datosMeteo = document.createElement('div');
@@ -18,6 +19,7 @@ function mostrar() {
     datosMeteo.style.listStyle = 'none';
 }
 
+//Genera un dato random de la temperatura
 function temperatura() {
     var num = Math.floor((Math.random() * 300) + 1) / 10;
     return "Temperatura: " + num + " ºC";

@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
-
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
         <!-- Styles -->
         <link href="css/estiloIframes.css" rel="stylesheet" />
-    
+
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
             integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
@@ -16,16 +15,16 @@
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
             integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
             crossorigin="" />
-    
+
         <!-- Scripts -->
         <script src="js/balizas.js"></script>
         <script src="js/datosBalizas.js"></script>
         <script src="js/dragDrop.js"></script>
-    
+
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
             integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
             crossorigin="anonymous"></script>
-    
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
             integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
@@ -39,8 +38,8 @@
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
             integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
             crossorigin=""></script>
-    
-    
+
+        <!-- Datos aleatorios -->
         <script type="text/javascript">
             $(document).ready(function () {
                 function cambiarDatos() {
@@ -62,7 +61,7 @@
 
 
     <body>
-        <!-- Menu -->
+        <!-- MENU -->
         <nav class="navbar navbar-expand-md navbar-dark bg-info shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="panelMeteorologico.html">
@@ -91,7 +90,7 @@
             </div>
         </nav>
 
-        <!-- Container -->
+        <!-- CONTENEDOR -->
         <main class="py-5">
             <div class="container-fluid">
 
@@ -132,7 +131,7 @@
                             //Ubicacion de las balizas
                             for (var i = 0; i < balizas.length; i++) {
                                 marker = new L.marker([balizas[i][2], balizas[i][3]]).on('click', markerOnClick).addTo(map);
-                                marker.bindPopup("<p id="+balizas[i][0]+"> Nombre: " + balizas[i][1] + "<br> Latitud: " + balizas[i][2] + "<br>Longitud: " + balizas[i][3] + "<br>Altitud: " + balizas[i][4] + "</p><button id='btnMostrar' onclick='mostrar()'>Ver datos</button>");
+                                marker.bindPopup("<p id=" + balizas[i][0] + "> Nombre: " + balizas[i][1] + "<br> Latitud: " + balizas[i][2] + "<br>Longitud: " + balizas[i][3] + "<br>Altitud: " + balizas[i][4] + "</p><button id='btnMostrar' onclick='mostrar()'>Ver datos</button>");
                             };
 
                         </script>
@@ -152,22 +151,28 @@
 
                             <div class="elegirDatos" ondragover="allowDrop(event);" ondrop="drop(event);">
                                 <ul>
-                                    <li id="drag-1" class="m-3 boton" draggable="true" ondragstart="drag(event)">Temperatura</li>
-                                    <li id="drag-2" class="m-3 boton" draggable="true" ondragstart="drag(event)">Humedad (%)</li>
-                                    <li id="drag-3" class="m-3 boton" draggable="true" ondragstart="drag(event)">Vel. Viento</li>
-                                    <li id="drag-4" class="m-3 boton" draggable="true" ondragstart="drag(event)">Dir. Viento</li>
-                                    <li id="drag-5" class="m-3 boton" draggable="true" ondragstart="drag(event)">Precipitaciones</li>
+                                    <li id="drag-1" class="m-3 boton" draggable="true" ondragstart="drag(event)">Temperatura
+                                    </li>
+                                    <li id="drag-2" class="m-3 boton" draggable="true" ondragstart="drag(event)">Humedad (%)
+                                    </li>
+                                    <li id="drag-3" class="m-3 boton" draggable="true" ondragstart="drag(event)">Vel. Viento
+                                    </li>
+                                    <li id="drag-4" class="m-3 boton" draggable="true" ondragstart="drag(event)">Dir. Viento
+                                    </li>
+                                    <li id="drag-5" class="m-3 boton" draggable="true" ondragstart="drag(event)">
+                                        Precipitaciones</li>
                                 </ul>
                             </div>
 
-                            <div class="row" id="panel" ondrop="drop(event)" ondragover="allowDrop(event)">    
+                            <div class="row" id="panel" ondrop="drop(event)" ondragover="allowDrop(event)">
                             </div>
-                            
+
                         </div>
 
                     </div>
                 </div>
 
+                <!-- Cerrar sesion -->
                 <script>
                     $(document).ready(function () {
                         $('#btnLogOut').on('click', getLogOut);
@@ -186,15 +191,12 @@
                                 dataType: 'json'
                             });
                         }
-
-                        
-
                     });        
                 </script>
 
             </div>
         </main>
-        
+
     </body>
 
 </html>
