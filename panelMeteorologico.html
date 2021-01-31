@@ -44,18 +44,19 @@
         <script type="text/javascript">
             $(document).ready(function () {
                 function cambiarDatos() {
-                    value = $('#temperatura').text();
+                    value = $('.temperatura').text();
                     $.ajax({
                         type: "POST",
                         url: "datosAleatorios.php",
                         success: function (data) {
-                            $('#temperatura').text(data);
+                            $('.temperatura').text(data);
                         }
                     });
                 }
                 setInterval(cambiarDatos, 5000);
             });
         </script>
+
         <title>Panel Meteorologico | Meteorologia</title>
     </head>
 
@@ -96,7 +97,6 @@
 
                 <!-- LADO IZQUIERDO (MAPA) -->
                 <div class="estilo collg-12 col-md-6 clearfix float-left">
-
                     <div class="m-5">
 
                         <div id='map'>
@@ -136,9 +136,7 @@
                             };
 
                         </script>
-
                     </div>
-
                 </div>
 
                 <!-- LADO DERECHO (DATOS) -->
@@ -191,50 +189,7 @@
 
                         
 
-                    });
-                
-
-                    // function leerTablasBalizas() {
-
-                    //     var divResultado = document.getElementById('panel');
-                    //     var xmlhttp = new XMLHttpRequest();
-
-                    //     xmlhttp.onreadystatechange =
-                    //         function() {
-                    //             var sSalida = "";
-                    //             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    //                 console.log(xmlhttp.responseText);
-                    //                 var jResp = JSON.parse(xmlhttp.responseText);
-
-                    //                 sSalida += "<h3><b></b></h3>";
-                    //                 sSalida += "<table border='1'>";
-
-                    //                 for (var i = 0; i < jResp.length; i++) {
-
-                    //                     sSalida += "<tr>";
-
-                    //                     sSalida += "<td>" + jResp[i]["id"] + "</td>";
-                    //                     sSalida += "<td>" + jResp[i]["nombre"] + "</td>";
-                    //                     sSalida += "<td>" + jResp[i]["temperatura"] + "</td>";
-                    //                     sSalida += "<td>" + jResp[i]["humedad"] + "</td>";
-                    //                     sSalida += "<td>" + jResp[i]["viento"] + "</td>";
-                    //                     sSalida += "<td>" + jResp[i]["vientoMax"] + "</td>";
-                    //                     sSalida += "<td>" + jResp[i]["vientoDir"] + "</td>";
-                    //                     sSalida += "<td>" + jResp[i]["precipitacion"] + "</td>";
-
-                    //                     sSalida += "</tr>";
-                    //                 }
-
-                    //                 sSalida += "</table>";
-                    //                 divResultado.innerHTML = sSalida;
-                    //             }
-                    //         }
-                    //     xmlhttp.open("GET", "AccesoDatos.php");
-                    //     xmlhttp.send();
-
-                    // }
-
-        
+                    });        
                 </script>
 
             </div>

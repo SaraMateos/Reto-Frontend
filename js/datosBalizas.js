@@ -5,10 +5,9 @@ function mostrar() {
 
     var texto1 = document.createElement("li");
     texto1.innerText = temperatura();
-    texto1.setAttribute('id', 'temperatura');
+    texto1.setAttribute('class', 'temperatura');
 
     datosMeteo.appendChild(texto1);
-
 
     document.getElementById('panel').appendChild(datosMeteo);
 
