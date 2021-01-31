@@ -48,6 +48,7 @@ body {
   
 .elegirDatos ul li {
     border: 3px solid #63cdd7;
+    background-color: #dde8f0;
     padding: 5px;
     display: inline-block;
     list-style-type: none;
