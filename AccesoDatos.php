@@ -2,7 +2,6 @@
 
     $servername = "127.0.0.1";
     $username = "root";
-    //$password = "sara";
 
     //Conexión a la base de datos:
     $link = @new mysqli($servername, $username, "api-reto");

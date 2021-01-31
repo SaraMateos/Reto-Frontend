@@ -1,24 +1,30 @@
 function mostrar() {
 
     var datosMeteo = document.createElement('div');
-    datosMeteo.setAttribute('id', 'panel');
+    datosMeteo.setAttribute('id', 'panelDatos');
 
     var texto1 = document.createElement("li");
     texto1.innerText = temperatura();
+    texto1.setAttribute('id', 'temperatura');
 
     var texto2 = document.createElement("li");
     texto2.innerText = humedad();
+    texto2.setAttribute('id', 'humedad');
 
     var texto3 = document.createElement("li");
     texto3.innerText = viento();
+    texto3.setAttribute('id', 'viento');
 
     var texto4 = document.createElement("li");
     texto4.innerText = precipitaciones();
+    texto4.setAttribute('id', 'precipitaciones');
 
     datosMeteo.appendChild(texto1);
     datosMeteo.appendChild(texto2);
     datosMeteo.appendChild(texto3);
     datosMeteo.appendChild(texto4);
+    datosMeteo.appendChild(salto);
+    datosMeteo.appendChild(btnCerrar);
 
     document.getElementById('panel').appendChild(datosMeteo);
 
@@ -29,7 +35,7 @@ function mostrar() {
     datosMeteo.style.listStyle = 'none';
 }
 
-function temperatura(texto3) {
+function temperatura() {
     var num = Math.floor((Math.random() * 300) + 1) / 10;
     return "Temperatura: " + num + " ºC";
 }
@@ -57,9 +63,4 @@ function vientoDir() {
 function precipitaciones() {
     var num = Math.floor((Math.random() * 99) + 1);
     return "Precipitaciones: " + num + " %";
-}
-
-function actualizarDatos() {
-    mostrar();
-
 }
