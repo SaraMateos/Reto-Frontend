@@ -40,7 +40,7 @@
             crossorigin=""></script>
 
         <!-- Datos aleatorios -->
-        <script type="text/javascript">
+        <!-- <script type="text/javascript">
             $(document).ready(function () {
                 function cambiarDatos() {
                     value = $('.temperatura').text();
@@ -49,12 +49,16 @@
                         url: "datosAleatorios.php",
                         success: function (data) {
                             $('.temperatura').text(data);
+                            console.log(data);
                         }
                     });
                 }
                 setInterval(cambiarDatos, 5000);
             });
-        </script>
+
+            var idParrafo = $( "p" ).attr( "id" );
+            $( "div" ).text( idParrafo );
+        </script> -->
 
         <title>Panel Meteorologico | Meteorologia</title>
     </head>
@@ -131,7 +135,7 @@
                             //Ubicacion de las balizas
                             for (var i = 0; i < balizas.length; i++) {
                                 marker = new L.marker([balizas[i][2], balizas[i][3]]).on('click', markerOnClick).addTo(map);
-                                marker.bindPopup("<p id=" + balizas[i][0] + "> Nombre: " + balizas[i][1] + "<br> Latitud: " + balizas[i][2] + "<br>Longitud: " + balizas[i][3] + "<br>Altitud: " + balizas[i][4] + "</p><button id='btnMostrar' onclick='mostrar()'>Ver datos</button>");
+                                marker.bindPopup("<p id='nomBaliza' name=" + balizas[i][0] + " value=" + balizas[i][0] + "> Nombre: " + balizas[i][1] + "<br> Latitud: " + balizas[i][2] + "<br>Longitud: " + balizas[i][3] + "<br>Altitud: " + balizas[i][4] + "</p><button id='btnMostrar' onclick='mostrar()'>Ver datos</button>");
                             };
 
                         </script>
@@ -191,7 +195,54 @@
                                 dataType: 'json'
                             });
                         }
-                    });        
+                    });
+
+                    function mostrar() {
+
+                        for (i=0; i<balizas.length; i++) { 
+                            if (document.getElementsByName(balizas[i][0])) {
+                                console.log(nomBaliza);
+                            } else {
+                                for (i=0; i<balizas.length; i++) {
+                                    if (balizas[i][0] == balizas[i][0]) {
+                                        var datosMeteo = document.createElement('div');
+                                        datosMeteo.setAttribute('id', balizas[i][0]);
+
+                                        var nomBaliza = document.createElement("li");
+                                        nomBaliza.innerText = balizas[i][1];
+                                        nomBaliza.setAttribute('class', 'Baliza');
+                                        nomBaliza.style.textAlign = 'center';
+
+                                        var texto1 = document.createElement("li");
+                                        texto1.innerText = temperatura();
+                                        texto1.setAttribute('class', 'temperatura');
+
+                                        var texto2 = document.createElement("li");
+                                        texto2.innerText = humedad();
+                                        texto2.setAttribute('class', 'humedad');
+
+                                        datosMeteo.appendChild(nomBaliza);
+                                        datosMeteo.appendChild(texto1);
+                                        datosMeteo.appendChild(texto2);
+
+                                        document.getElementById('panel').appendChild(datosMeteo);
+
+                                        datosMeteo.className = "sm-12 md-6 mb-3";
+                                        datosMeteo.style.border = '4px solid #97cbdc';
+                                        datosMeteo.style.background = '#dde8f0';
+                                        datosMeteo.style.marginLeft = '6%';
+                                        datosMeteo.style.listStyle = 'none';
+                                    }
+                                }
+                            
+                            }
+
+                        }
+                        
+
+                        
+
+                    }
                 </script>
 
             </div>
