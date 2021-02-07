@@ -1,5 +1,4 @@
-//Función que crea el div al pulsar sobre el botón
-//Genera un dato random de la temperatura
+//Genera datos random
 function temperatura() {
     var num = Math.floor((Math.random() * 300) + 1) / 10;
     return "Temperatura: " + num + " ºC";

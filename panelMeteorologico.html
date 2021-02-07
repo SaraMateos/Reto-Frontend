@@ -135,7 +135,7 @@
                             //Ubicacion de las balizas
                             for (var i = 0; i < balizas.length; i++) {
                                 marker = new L.marker([balizas[i][2], balizas[i][3]]).on('click', markerOnClick).addTo(map);
-                                marker.bindPopup(`<p id='nomBaliza' name="${balizas[i][0]}" value="${balizas[i][0]}"> Nombre: ${balizas[i][1]}<br> Latitud: ${balizas[i][2]}<br>Longitud: ${balizas[i][3]} <br>Altitud: ${balizas[i][4]}</p><button id='btnMostrar' onclick='mostrar("${balizas[i][0]}")'>Ver datos</button>`);
+                                marker.bindPopup(`<p id='nomBaliza' name="${balizas[i][0]}" value="${balizas[i][0]}"> Nombre: ${balizas[i][1]}<br> Latitud: ${balizas[i][2]}<br>Longitud: ${balizas[i][3]} <br>Altitud: ${balizas[i][4]}</p><button id='btnmostrarBaliza' onclick='mostrarBaliza("${balizas[i][0]}")'>Ver datos</button><button id='btnEliminar' onclick='eliminarBaliza("${balizas[i][0]}")'>Quitar baliza</button>`);
                             };
 
                         </script>
@@ -197,12 +197,22 @@
                         }
                     });
 
-                    function mostrar(idBaliza) {
+                    function actualizarBaliza(idBaliza) {
+                        var actuBaliza = document.getElementById(idBaliza);
+                        actuBaliza.remove();
+                    }
+
+                    function eliminarBaliza(idBaliza) {
+                        var rmBaliza = document.getElementById(idBaliza);
+                        rmBaliza.remove();
+                    }
+
+                    function mostrarBaliza(idBaliza) {
 
                         for (i=0; i<balizas.length; i++) { 
-                            
+
                             if (document.getElementById(idBaliza)) {
-                                console.log(idBaliza);
+                                actualizarBaliza(idBaliza);
                             } else {
                                 for (i=0; i<balizas.length; i++) {
                                     if (balizas[i][0] == idBaliza) {
@@ -213,6 +223,7 @@
                                         nomBaliza.innerText = balizas[i][1];
                                         nomBaliza.setAttribute('class', 'Baliza');
                                         nomBaliza.style.textAlign = 'center';
+                                        nomBaliza.style.fontWeight = 'bold';
 
                                         var texto1 = document.createElement("li");
                                         texto1.innerText = temperatura();
@@ -241,6 +252,8 @@
                         }
     
                     }
+
+                    
                 </script>
 
             </div>
