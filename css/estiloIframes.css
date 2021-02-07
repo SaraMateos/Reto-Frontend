@@ -69,7 +69,12 @@ li.boton:hover {
     border: 4px solid #97cbdc;
 }
 
-#btnMostrar{
+#btnMostrar {
+    background-color: #63cdd7;
+    border-radius: 40px;
+}
+
+#btnEliminar {
     background-color: #63cdd7;
     border-radius: 40px;
 }

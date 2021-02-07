@@ -8,3 +8,13 @@ function humedad() {
     var num = Math.floor((Math.random() * 99) + 1);
     return "Humedad: " + num + " %";
 }
+
+function viento() {
+    var num = Math.floor((Math.random() * 149) + 1);
+    return "Viento: " + num + " km/h";
+}
+
+function precipitaciones() {
+    var num = Math.floor((Math.random() * 99) + 1);
+    return "Precipitacion: " + num + " %";
+}

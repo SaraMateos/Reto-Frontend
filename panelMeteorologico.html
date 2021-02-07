@@ -39,27 +39,6 @@
             integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
             crossorigin=""></script>
 
-        <!-- Datos aleatorios -->
-        <!-- <script type="text/javascript">
-            $(document).ready(function () {
-                function cambiarDatos() {
-                    value = $('.temperatura').text();
-                    $.ajax({
-                        type: "POST",
-                        url: "datosAleatorios.php",
-                        success: function (data) {
-                            $('.temperatura').text(data);
-                            console.log(data);
-                        }
-                    });
-                }
-                setInterval(cambiarDatos, 5000);
-            });
-
-            var idParrafo = $( "p" ).attr( "id" );
-            $( "div" ).text( idParrafo );
-        </script> -->
-
         <title>Panel Meteorologico | Meteorologia</title>
     </head>
 
@@ -118,8 +97,19 @@
                             L.control.scale().addTo(map);
 
                             //Marcador al clickar
+                            //Marcador rojo
                             var icono = new L.Icon({
                                 iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+                                shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41],
+                                popupAnchor: [1, -34],
+                                shadowSize: [41, 41]
+                            });
+
+                            //Marcador azul
+                            var iconoAzul = new L.Icon({
+                                iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
                                 shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
                                 iconSize: [25, 41],
                                 iconAnchor: [12, 41],
@@ -135,7 +125,7 @@
                             //Ubicacion de las balizas
                             for (var i = 0; i < balizas.length; i++) {
                                 marker = new L.marker([balizas[i][2], balizas[i][3]]).on('click', markerOnClick).addTo(map);
-                                marker.bindPopup(`<p id='nomBaliza' name="${balizas[i][0]}" value="${balizas[i][0]}"> Nombre: ${balizas[i][1]}<br> Latitud: ${balizas[i][2]}<br>Longitud: ${balizas[i][3]} <br>Altitud: ${balizas[i][4]}</p><button id='btnmostrarBaliza' onclick='mostrarBaliza("${balizas[i][0]}")'>Ver datos</button><button id='btnEliminar' onclick='eliminarBaliza("${balizas[i][0]}")'>Quitar baliza</button>`);
+                                marker.bindPopup(`<p id='nomBaliza' name="${balizas[i][0]}" value="${balizas[i][0]}"> Nombre: ${balizas[i][1]}<br> Latitud: ${balizas[i][2]}<br>Longitud: ${balizas[i][3]} <br>Altitud: ${balizas[i][4]}</p><button id='btnMostrar' onclick='mostrarBaliza("${balizas[i][0]}")'>Ver</button><button id='btnEliminar' onclick='eliminarBaliza("${balizas[i][0]}")'>Quitar</button>`);
                             };
 
                         </script>
@@ -197,16 +187,19 @@
                         }
                     });
 
+                    // Actualiza los datos de la baliza
                     function actualizarBaliza(idBaliza) {
                         var actuBaliza = document.getElementById(idBaliza);
                         actuBaliza.remove();
                     }
 
+                    // Elimina la baliza
                     function eliminarBaliza(idBaliza) {
                         var rmBaliza = document.getElementById(idBaliza);
                         rmBaliza.remove();
                     }
-
+                    
+                    // Muestra las balizas
                     function mostrarBaliza(idBaliza) {
 
                         for (i=0; i<balizas.length; i++) { 
@@ -233,9 +226,19 @@
                                         texto2.innerText = humedad();
                                         texto2.setAttribute('class', 'humedad');
 
+                                        var texto3 = document.createElement("li");
+                                        texto3.innerText = viento();
+                                        texto3.setAttribute('class', 'viento');
+
+                                        var texto4 = document.createElement("li");
+                                        texto4.innerText = precipitaciones();
+                                        texto4.setAttribute('class', 'precipitacion');
+
                                         datosMeteo.appendChild(nomBaliza);
                                         datosMeteo.appendChild(texto1);
                                         datosMeteo.appendChild(texto2);
+                                        datosMeteo.appendChild(texto3);
+                                        datosMeteo.appendChild(texto4);
 
                                         document.getElementById('panel').appendChild(datosMeteo);
 
