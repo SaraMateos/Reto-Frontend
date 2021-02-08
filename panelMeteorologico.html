@@ -133,7 +133,7 @@
                 </div>
 
                 <!-- LADO DERECHO (DATOS) -->
-                <div class="estilo col-md-6 clearfix float-left">
+                <div class="estilo col-md-6 float-left">
                     <div class="m-5">
 
                         <div class="row">
@@ -145,20 +145,15 @@
 
                             <div class="elegirDatos" ondragover="allowDrop(event);" ondrop="drop(event);">
                                 <ul>
-                                    <li id="drag-1" class="m-3 boton" draggable="true" ondragstart="drag(event)">Temperatura
-                                    </li>
-                                    <li id="drag-2" class="m-3 boton" draggable="true" ondragstart="drag(event)">Humedad (%)
-                                    </li>
-                                    <li id="drag-3" class="m-3 boton" draggable="true" ondragstart="drag(event)">Vel. Viento
-                                    </li>
-                                    <li id="drag-4" class="m-3 boton" draggable="true" ondragstart="drag(event)">Dir. Viento
-                                    </li>
-                                    <li id="drag-5" class="m-3 boton" draggable="true" ondragstart="drag(event)">
-                                        Precipitaciones</li>
+                                    <li id="drag-1" class="m-3 boton" draggable="true" ondragstart="drag(event)">Temperatura</li>
+                                    <li id="drag-2" class="m-3 boton" draggable="true" ondragstart="drag(event)">Humedad (%)</li>
+                                    <li id="drag-3" class="m-3 boton" draggable="true" ondragstart="drag(event)">Vel. Viento</li>
+                                    <li id="drag-4" class="m-3 boton" draggable="true" ondragstart="drag(event)">Dir. Viento</li>
+                                    <li id="drag-5" class="m-3 boton" draggable="true" ondragstart="drag(event)">Precipitaciones</li>
                                 </ul>
                             </div>
 
-                            <div class="row" id="panel" ondrop="drop(event)" ondragover="allowDrop(event)">
+                            <div class="row float-right" id="panel" ondrop="drop(event)" ondragover="allowDrop(event)">
                             </div>
 
                         </div>
@@ -235,15 +230,15 @@
                                         texto4.innerText = precipitaciones();
                                         texto4.setAttribute('class', 'precipitacion');
 
-                                        datosMeteo.appendChild(nomBaliza);
-                                        datosMeteo.appendChild(texto1);
-                                        datosMeteo.appendChild(texto2);
-                                        datosMeteo.appendChild(texto3);
-                                        datosMeteo.appendChild(texto4);
+                                        datosMeteo.append(nomBaliza);
+                                        datosMeteo.append(texto1);
+                                        datosMeteo.append(texto2);
+                                        datosMeteo.append(texto3);
+                                        datosMeteo.append(texto4);
 
-                                        document.getElementById('panel').appendChild(datosMeteo);
+                                        document.getElementById('panel').append(datosMeteo);
 
-                                        datosMeteo.className = "sm-6 md-6 lg-6 mb-3";
+                                        datosMeteo.className = "mb-3";
                                         datosMeteo.style.border = '4px solid #97cbdc';
                                         datosMeteo.style.background = '#dde8f0';
                                         datosMeteo.style.marginLeft = '6%';
